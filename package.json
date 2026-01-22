@@ -1,0 +1,26 @@
+{
+  "name": "asset-probe",
+  "version": "1.0.0",
+  "description": "Web asset discovery and reconnaissance tool with batch processing, screenshot, and HTML report generation",
+  "main": "assetprobe.js",
+  "bin": {
+    "asset-probe": "./assetprobe.js"
+  },
+  "scripts": {
+    "start": "node assetprobe.js",
+    "convert-fingerprints": "node convert-fingerprints.js",
+    "debug-fingerprint": "node debug-fingerprints.js"
+  },
+  "keywords": [
+    "web-scanner",
+    "asset-discovery",
+    "reconnaissance",
+    "screenshot",
+    "batch-processing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.57.0"
+  }
+}

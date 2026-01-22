@@ -1,0 +1,30 @@
+{
+  "name": "assetprobe-mcp-server",
+  "version": "1.0.0",
+  "description": "AssetProbe MCP Server - Web资产发现与指纹识别工具",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "assetprobe-mcp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "mcp",
+    "asset-discovery",
+    "web-fingerprinting",
+    "security",
+    "reconnaissance"
+  ],
+  "author": "AssetProbe",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "playwright": "^1.49.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
