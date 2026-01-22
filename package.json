@@ -8,7 +8,6 @@
   },
   "scripts": {
     "start": "node assetprobe.js",
-    "convert-fingerprints": "node convert-fingerprints.js",
     "debug-fingerprint": "node debug-fingerprints.js"
   },
   "keywords": [
@@ -18,7 +17,7 @@
     "screenshot",
     "batch-processing"
   ],
-  "author": "",
+  "author": "Ark",
   "license": "ISC",
   "dependencies": {
     "playwright": "^1.57.0"
