@@ -1,0 +1,23 @@
+# Development files
+assetprobe-mcp/
+debug-fingerprints.js
+
+# Test and config
+.github/
+*.test.js
+.eslintrc*
+
+# Documentation (except README)
+docs/
+CLAUDE.md
+*.md
+!README.md
+
+# Build artifacts
+screenshots/
+*.tgz
+
+# Backup files
+webapp-fingerprints-bak.json
+.npmrc
+

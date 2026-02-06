@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Screenshots
+screenshots/
+
+# Backup files
+*.bak
+*_bak.*
+
+# Test files
+test.txt
+sx.txt
+yc.txt
+test-urls.txt
+
+# Convert tool (not needed for distribution)
+convert-fingerprints.js
+
+# Claude Code
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Old fingerprint database (backup)
+webapp-fingerprints_bak.json

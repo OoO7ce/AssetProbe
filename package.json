@@ -1,0 +1,54 @@
+{
+  "name": "assetprobe",
+  "version": "1.0.0",
+  "description": "Web asset discovery and reconnaissance tool with batch processing, screenshot, and HTML report generation",
+  "main": "assetprobe.js",
+  "bin": {
+    "assetprobe": "./assetprobe.js"
+  },
+  "scripts": {
+    "start": "node assetprobe.js",
+    "debug-fingerprint": "node debug-fingerprints.js",
+    "install-browser": "npx playwright install chromium",
+    "postinstall": "npx playwright install chromium",
+    "release": "semantic-release",
+    "release:dry-run": "semantic-release --dry-run"
+  },
+  "keywords": [
+    "web-scanner",
+    "asset-discovery",
+    "reconnaissance",
+    "screenshot",
+    "batch-processing"
+  ],
+  "author": "Ark",
+  "license": "ISC",
+  "files": [
+    "assetprobe.js",
+    "webapp-fingerprints.json",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OoO7ce/AssetProbe.git"
+  },
+  "dependencies": {
+    "playwright": "~1.57.0"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^10.3.5",
+    "@semantic-release/npm": "^12.0.2",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "semantic-release": "^24.2.9"
+  }
+}
