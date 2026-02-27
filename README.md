@@ -1,3 +1,5 @@
+[简体中文](./README_CN.md) | English
+
 # AssetProbe
 
 [![npm version](https://badge.fury.io/js/assetprobe.svg)](https://www.npmjs.com/package/assetprobe)
@@ -8,316 +10,314 @@
 
 Web asset discovery and reconnaissance tool with batch processing, screenshot, HTML report generation, and web application fingerprinting.
 
-资产发现与侦察工具，支持批量处理、网页截图、HTML 报告生成和 Web 应用指纹识别。
+## Features
 
-## ✨ 主要功能
+- 🌐 **Dynamic Rendering**: Supports SPA, React/Vue/Angular and other JavaScript-rendered websites
+- 🔄 **Concurrent Processing**: Batch process URLs with default concurrency of 5 (adjustable 10-100)
+- 📸 **Screenshot**: Supports screenshot and full-page screenshot
+- 📊 **Multi-format Reports**: Auto-generate HTML reports and JSON exports
+- 🎯 **Fingerprint Recognition**: Identify web apps and tech stacks based on 17,000+ fingerprint database
 
-- 🌐 **动态渲染**：支持 SPA、React/Vue/Angular 等需要 JavaScript 渲染的网站
-- 🔄 **并发处理**：批量处理 URL，默认并发数 5，可调范围 10-100
-- 📸 **网页截图**：支持截图和完整页面截图
-- 📊 **多格式报告**：自动生成 HTML 报告和 JSON 格式导出
-- 🎯 **指纹识别**：基于 17,000+ 指纹库自动识别 Web 应用和技术栈
+## Use Cases
 
-## 🎯 应用场景
+### 1. Asset Discovery & Management
 
-### 1. 资产发现与管理
+- **Internal Network Scanning**: Quickly scan IP ranges or domain lists to identify web services
+- **Asset Classification**: Quickly identify system types through website titles
+- **Visual Archiving**: Visually record current website states through screenshots
+- **Batch Verification**: Check if large number of assets are alive
 
-- **内网资产扫描**：快速扫描 IP 段或域名列表，识别 Web 服务
-- **资产分类**：通过网站标题快速识别系统类型
-- **可视化归档**：通过截图直观记录网站当前状态
-- **批量验证**：检查大量资产是否存活
+### 2. Security Testing Assistance
 
-### 2. 安全测试辅助
+- **Information Gathering**: Quickly identify live sites, collect titles and screenshots
+- **Port Scan Verification**: Verify web services with port scan results
+- **Proxy Support**: Access and test different network environments via proxy
+- **Target Filtering**: Filter high-value targets through screenshots
 
-- **信息收集**：快速识别存活站点，收集标题和截图
-- **端口扫描验证**：配合端口扫描结果，验证 Web 服务
-- **代理支持**：通过代理访问测试不同网络环境
-- **目标筛选**：通过截图筛选高价值目标
+### 3. Website Health Check
 
-### 3. 网站健康检查
+- **Batch Monitoring**: Regularly check key website status
+- **Availability Reports**: Generate HTML reports showing monitoring results
+- **Failure Tracking**: Uniformly mark "site inaccessible"
 
-- **批量监控**：定期检查关键网站状态
-- **可用性报告**：生成 HTML 报告展示监控结果
-- **失败追踪**：统一标记"站点无法访问"
+**Core Value**:
+- ⚡ **Efficient**: Concurrent processing is 10-50x faster than sequential
+- 👁️ **Visual**: Screenshots + titles are easier to understand than plain text
+- 📊 **Automated**: Batch processing + report generation
 
-**核心价值**：
-- ⚡ **高效**：并发处理比逐个访问快 10-50 倍
-- 👁️ **直观**：截图+标题比纯文本更易理解
-- 📊 **自动化**：批量处理+报告生成
+## Installation
 
-## 📦 安装
-
-### 环境要求
+### Requirements
 
 - **Node.js** >= 18.0.0
-- **npm** 或 **yarn**
+- **npm** or **yarn**
 
-### 方式一：通过 npm 全局安装（推荐）
+### Option 1: Install via npm (Recommended)
 
 ```bash
 npm install -g assetprobe
 ```
 
-安装后可直接使用 `assetprobe` 命令：
+After installation, use `assetprobe` directly:
 
 ```bash
 assetprobe -u https://www.example.com
 assetprobe -b urls.txt -c 10
 ```
 
-### 方式二：从源码安装
+### Option 2: Install from Source
 
 ```bash
-# 克隆项目
+# Clone the project
 git clone https://github.com/OoO7ce/AssetProbe.git
 cd AssetProbe
 
-# 安装依赖（会自动下载 Chromium 浏览器）
+# Install dependencies (Chromium browser will be downloaded automatically)
 npm install
 
-# 运行
+# Run
 npm start -- -u https://www.example.com
-# 或
+# or
 node assetprobe.js -u https://www.example.com
 ```
 
-**注意**：首次安装时会自动下载 Chromium 浏览器（约 300MB），请耐心等待。
+**Note**: Chromium browser (~300MB) will be downloaded automatically on first run.
 
-## 🚀 使用方法
+## Usage
 
-### 基础用法
+### Basic Usage
 
 ```bash
-# 查看帮助
+# View help
 assetprobe --help
 
-# 访问单个网站
+# Access single website
 assetprobe -u https://www.example.com
 
-# 使用代理访问
+# Access with proxy
 assetprobe -u https://www.example.com -p 127.0.0.1:7890
 
-# 截图
+# Take screenshot
 assetprobe -u https://www.example.com -s
 
-# 截取完整页面
+# Full page screenshot
 assetprobe -u https://www.example.com -s -f
 
-# 静默模式
+# Quiet mode
 assetprobe -u https://www.example.com -q
 
-# 导出 JSON 报告
+# Export JSON report
 assetprobe -u https://www.example.com -j results.json
 ```
 
-### 批量处理
+### Batch Processing
 
 ```bash
-# 批量处理 URL 列表
+# Batch process URL list
 assetprobe -b urls.txt
 
-# 批量处理并截图
+# Batch process with screenshot
 assetprobe -b urls.txt -s -q
 
-# 批量处理并导出 JSON（自动命名）
+# Batch process with JSON export (auto-named)
 assetprobe -b urls.txt -j
 
-# 批量处理并导出 JSON（指定路径）
+# Batch process with JSON export (specified path)
 assetprobe -b urls.txt -j custom/results.json
 
-# 调整并发数（默认 5，范围 5-100）
+# Adjust concurrency (default 5, range 5-100)
 assetprobe -b urls.txt -c 20
 ```
 
-**URL 列表文件格式 (urls.txt):**
+**URL List File Format (urls.txt)**:
 ```
 https://www.example.com
 https://www.example.org
 
-# 这是注释，会被忽略
+# This is a comment, will be ignored
 https://192.168.1.1:8080
 ```
 
-## 📊 报告导出
+## Report Export
 
-### HTML 报告
+### HTML Report
 
-批量处理完成后自动生成 HTML 报告，包含：
+After batch processing, HTML reports are auto-generated with:
 
-- 📈 统计概览（总任务数、成功数、失败数、成功率）
-- 📋 结果列表（URL、标题、状态码、Web 应用指纹）
-- 🔍 搜索和筛选功能
-- 🖼️ 截图预览（缩略图，点击放大）
-- 🎨 现代白色系主题，流畅动画效果
+- 📈 Statistics overview (total, success, failed, success rate)
+- 📋 Result list (URL, title, status code, web app fingerprint)
+- 🔍 Search and filter
+- 🖼️ Screenshot preview (thumbnail, click to enlarge)
+- 🎨 Modern white theme with smooth animations
 
-### JSON 报告
+### JSON Report
 
 ```bash
-# 单个 URL 导出
+# Single URL export
 assetprobe -u https://example.com -j results.json
 
-# 批量处理导出（自动命名）
+# Batch process with export (auto-named)
 assetprobe -b urls.txt -j
 ```
 
-JSON 报告包含完整的数据：
-- URL 和状态码
-- 网站标题
-- Web 应用指纹（置信度）
-- 截图路径
-- 统计信息
+JSON report contains complete data:
+- URL and status code
+- Website title
+- Web app fingerprint (confidence)
+- Screenshot path
+- Statistics
 
-## 📐 参数说明
+## Options
 
-| 参数 | 说明 | 默认值 |
-|------|------|--------|
-| `-u, --url <地址>` | 要访问的网站地址 | - |
-| `-p, --proxy <地址>` | 代理服务器地址（格式：`IP:端口` 或 `http://IP:端口`） | - |
-| `-b, --batch <文件>` | 批量处理 URL 列表文件 | - |
-| `-c, --concurrency <数量>` | 并发处理数量 | 5 |
-| `-s, --screenshot [文件]` | 保存网页截图 | - |
-| `-f, --full` | 截取完整页面 | - |
-| `-q, --quiet` | 静默模式，不显示网络请求详情 | - |
-| `-j, --json [文件]` | 导出 JSON 格式报告 | - |
-| `-h, --help` | 显示帮助信息 | - |
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-u, --url <address>` | Website address to visit | - |
+| `-p, --proxy <address>` | Proxy server (format: `IP:PORT` or `http://IP:PORT`) | - |
+| `-b, --batch <file>` | URL list file for batch processing | - |
+| `-c, --concurrency <number>` | Concurrent processing count | 5 |
+| `-s, --screenshot [file]` | Save website screenshot | - |
+| `-f, --full` | Capture full page | - |
+| `-q, --quiet` | Quiet mode, hide network request details | - |
+| `-j, --json [file]` | Export JSON report | - |
+| `-h, --help` | Show help | - |
 
-## 🖼️ 截图说明
+## Screenshot Notes
 
-### 单个 URL 模式
+### Single URL Mode
 
-- 按域名/IP 自动分类保存
-- 文件命名：`screenshot_时间戳.png`
-- 可自定义文件名
+- Save automatically by domain/IP
+- Filename: `screenshot_timestamp.png`
+- Custom filename supported
 
-### 批量模式
+### Batch Mode
 
-- 时间戳文件夹：`screenshots/batch/时间戳/`
-- 文件命名：`域名.png`
-- 自动生成 HTML 报告
+- Timestamp folder: `screenshots/batch/timestamp/`
+- Filename: `domain.png`
+- Auto-generate HTML report
 
-### 文件夹结构
+### Folder Structure
 
 ```
 screenshots/
-├── www.example.com/           # 单个模式
+├── www.example.com/           # Single mode
 │   └── screenshot_2025-12-31.png
-└── batch/                      # 批量模式
+└── batch/                      # Batch mode
     └── 2025-12-31T10-00-00/
-        ├── report.html        # HTML 报告
-        ├── results.json      # JSON 报告
+        ├── report.html        # HTML report
+        ├── results.json      # JSON report
         ├── www.example.com.png
         └── www.example.org.png
 ```
 
-## ⚡ 性能优化
+## Performance Optimization
 
-- **默认并发数**：5（平衡性能和稳定性）
-- **可调并发范围**：5-100
-- **批量模式超时**：30 秒
-- **批量模式等待**：500 毫秒
+- **Default Concurrency**: 5 (balance of performance and stability)
+- **Adjustable Range**: 5-100
+- **Batch Mode Timeout**: 30 seconds
+- **Batch Mode Wait**: 500ms
 
-**性能对比：**
+**Performance Comparison:**
 ```
-串行处理：100 URL × 2 秒 = 200 秒 (3.3 分钟)
-并发 5：   100 URL ÷ 5 × 2 秒 = 40 秒
-并发 20：  100 URL ÷ 20 × 2 秒 = 10 秒
-并发 50：  100 URL ÷ 50 × 2 秒 = 4 秒
+Sequential: 100 URL × 2 sec = 200 sec (3.3 min)
+Concurrent 5:   100 URL ÷ 5 × 2 sec = 40 sec
+Concurrent 20:  100 URL ÷ 20 × 2 sec = 10 sec
+Concurrent 50:  100 URL ÷ 50 × 2 sec = 4 sec
 ```
 
-## 📋 状态码说明
+## Status Code Reference
 
-| 状态码范围 | 含义 | 示例 |
-|-----------|------|------|
-| 200-299 | 成功 | 200 ✓ |
-| 300-399 | 重定向 | 301 ↪ |
-| 400-499 | 客户端错误 | 404 ⚠️ |
-| 500-599 | 服务器错误 | 500 ❌ |
-| 连接失败 | 站点无法访问 | 站点无法访问 ✗ |
+| Status Code | Meaning | Example |
+|-------------|---------|---------|
+| 200-299 | Success | 200 ✓ |
+| 300-399 | Redirect | 301 ↪ |
+| 400-499 | Client Error | 404 ⚠️ |
+| 500-599 | Server Error | 500 ❌ |
+| Connection Failed | Site unreachable | Site unreachable ✗ |
 
-## 🔧 开发相关
+## Development
 
-### NPM 脚本
+### NPM Scripts
 
 ```bash
-npm start                      # 运行主程序
-npm run install-browser        # 手动安装浏览器
+npm start                      # Run main program
+npm run install-browser        # Install browser manually
 ```
 
-### 全局安装（开发）
+### Global Install (Development)
 
-如果你想从本地源码全局安装：
+If you want to install globally from local source:
 
 ```bash
-# 在项目根目录
+# In project root
 npm link
 
-# 或使用 npm 全局安装
+# Or use npm global install
 npm install -g ./
 
-# 测试
+# Test
 assetprobe --help
 ```
 
-### 卸载
+### Uninstall
 
 ```bash
-# 卸载全局安装
+# Uninstall global install
 npm uninstall -g assetprobe
 ```
 
-## 📂 项目结构
+## Project Structure
 
 ```
 assetprobe/
-├── assetprobe.js              # 主程序
-├── package.json               # 项目配置
-├── README.md                  # 使用说明
-├── LICENSE                    # 许可证
-├── .npmignore                 # npm 发布忽略规则
-├── webapp-fingerprints.json   # Web 应用指纹库（17,000+）
-└── screenshots/               # 截图保存目录（自动创建）
+├── assetprobe.js              # Main program
+├── package.json               # Project config
+├── README.md                  # Documentation
+├── LICENSE                    # License
+├── .npmignore                 # npm ignore rules
+├── webapp-fingerprints.json   # Web app fingerprint database (17,000+)
+└── screenshots/               # Screenshot directory (auto-created)
 ```
 
-## 📝 注意事项
+## Notes
 
-1. **首次运行**：`npm install` 会自动下载 Chromium 浏览器（约 300MB）
-2. **代理地址**：可省略 `http://` 前缀，程序会自动处理
-3. **超时时间**：单个模式 60 秒，批量模式 30 秒
-4. **反爬虫**：某些网站可能有反爬虫机制，建议合理设置请求频率
-5. **写入权限**：截图文件会保存在当前目录，请确保有写入权限
-6. **并发设置**：建议从小并发数开始测试，逐步增加（5 → 10 → 20）
+1. **First Run**: `npm install` will automatically download Chromium (~300MB)
+2. **Proxy Address**: Can omit `http://` prefix, program handles automatically
+3. **Timeout**: Single mode 60 seconds, batch mode 30 seconds
+4. **Anti-crawler**: Some websites may have anti-crawler mechanisms, set request frequency reasonably
+5. **Write Permission**: Screenshots are saved in current directory, ensure write permission
+6. **Concurrency**: Start with low concurrency and increase gradually (5 → 10 → 20)
 
-## 📄 许可证
+## License
 
 [ISC License](LICENSE)
 
-## 👤 作者
+## Author
 
 Ark
 
-## 🤝 贡献
+## Contributing
 
-欢迎贡献！请遵循以下规范：
+Contributions are welcome! Please follow:
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'feat: add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'feat: add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## ⭐ 如果这个项目对你有帮助
+## ⭐ If This Project Helps You
 
-请给一个 ⭐ Star 支持一下！
+Please give a ⭐ Star to support!
 
-- 你可以通过点击 GitHub 页面右上角的 Star 按钮来支持本项目
-- 分享给需要的朋友
-- 提供反馈和建议
-- 提交 PR 改进项目
+- Click the Star button on the GitHub page
+- Share with friends who need it
+- Provide feedback and suggestions
+- Submit PRs to improve the project
 
-## 🙏 致谢
+## Acknowledgments
 
-- [Playwright](https://playwright.dev/) - 现代化的浏览器自动化工具
-- Web 应用指纹库基于开源项目整理
+- [Playwright](https://playwright.dev/) - Modern browser automation tool
+- Web app fingerprint database organized from open source projects
 
 ---
 
