@@ -255,6 +255,34 @@ function loadFingerprints() {
   }
 }
 
+// 指纹库缓存和索引
+let fingerprintsCache = null;
+let iconIndexCache = null;
+
+// 构建 icon 索引（hash -> 应用列表）
+function buildIconIndex(fingerprints) {
+  if (iconIndexCache) {
+    return iconIndexCache;
+  }
+
+  const iconIndex = {};
+  for (const [appName, features] of Object.entries(fingerprints)) {
+    if (features.icon && features.icon[0]) {
+      // icon 可能包含多个值（用 || 分隔）
+      const iconValues = features.icon[0].split(' || ').map(s => s.trim());
+      for (const iconValue of iconValues) {
+        if (!iconIndex[iconValue]) {
+          iconIndex[iconValue] = [];
+        }
+        iconIndex[iconValue].push({ name: appName, features });
+      }
+    }
+  }
+
+  iconIndexCache = iconIndex;
+  return iconIndex;
+}
+
 // MurmurHash3 算法（32位）- 与 Shodan/FOFA 一致
 function murmurhash3(data) {
   const len = data.length;
@@ -392,9 +420,14 @@ function matchCondition(conditionStr, content, matchFn) {
   });
 }
 
-// Web 应用指纹识别
+// Web 应用指纹识别（使用索引优化）
 async function identifyWebApp(response, page, url, batchMode = false) {
-  const fingerprints = loadFingerprints();
+  // 使用缓存的指纹库
+  if (!fingerprintsCache) {
+    fingerprintsCache = loadFingerprints();
+  }
+  const fingerprints = fingerprintsCache;
+
   const detected = [];
 
   // 如果指纹库为空，返回空数组
@@ -423,11 +456,29 @@ async function identifyWebApp(response, page, url, batchMode = false) {
   const headerStrLower = headerStr.toLowerCase(); // 缓存toLowerCase结果
   const mainPageTitleLower = mainPageTitle.toLowerCase(); // 缓存toLowerCase结果
 
-  // 提取 4 个维度
+  // 提取 icon hash
   const iconHash = await getIconHash(page, url);
 
-  // 遍历每个应用（优化：按速度排序匹配）
-  for (const [appName, features] of Object.entries(fingerprints)) {
+  // 使用索引优化：先通过 icon 快速过滤候选应用
+  let candidates = [];
+  if (iconHash) {
+    const iconIndex = buildIconIndex(fingerprints);
+    const matchedApps = iconIndex[iconHash];
+    if (matchedApps && matchedApps.length > 0) {
+      candidates = matchedApps;
+    }
+  }
+
+  // 如果没有匹配的 icon，应用全部遍历
+  if (candidates.length === 0) {
+    candidates = Object.entries(fingerprints).map(([name, features]) => ({ name, features }));
+  }
+
+  // 遍历候选应用进行匹配
+  for (const candidate of candidates) {
+    const appName = candidate.name;
+    const features = candidate.features;
+
     let confidence = 0;
 
     // 1. 先匹配 icon（最快，hash比较）
