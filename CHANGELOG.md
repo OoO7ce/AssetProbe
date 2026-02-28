@@ -1,3 +1,19 @@
+## [1.2.0](https://github.com/OoO7ce/AssetProbe/compare/v1.1.0...v1.2.0) (2026-02-28)
+
+### ⚠ BREAKING CHANGES
+
+* -q flag removed, -j now outputs to console instead of file, -o flag required for file output
+
+Co-Authored-By: Claude (MiniMax-M2.5-highspeed) <noreply@anthropic.com>
+
+### ✨ Features
+
+* separate middleware fingerprints and simplify CLI output ([a8efbc4](https://github.com/OoO7ce/AssetProbe/commit/a8efbc4b93d74c42446455a291455efe970b53fe))
+
+### 📝 Documentation
+
+* add English and Chinese README with language switch [skip ci] ([ad7ddcc](https://github.com/OoO7ce/AssetProbe/commit/ad7ddccb9e3abcc19f01ad3edbc2fd14f2c547d8))
+
 ## [1.1.0](https://github.com/OoO7ce/AssetProbe/compare/v1.0.0...v1.1.0) (2026-02-27)
 
 ### 📝 Documentation
