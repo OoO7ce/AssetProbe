@@ -58,11 +58,9 @@ function showHelp() {
                            示例: -s screenshot.png
                            示例: -s (自动命名)
   -f, --full               截取完整页面（包括滚动部分）
-  -q, --quiet              静默模式，不显示网络请求详情
-  -j, --json [文件]        保存 JSON 格式报告
-                           可选指定文件名，默认自动生成
-                           示例: -j results.json
-                           示例: -j (自动命名)
+  -j, --json               输出 JSON 到控制台（不保存）
+  -o, --output <文件>      保存 JSON 报告到文件
+                           示例: -o results.json
   -h, --help               显示帮助信息
 
 示例:
@@ -76,10 +74,10 @@ function showHelp() {
   assetprobe -b urls.txt -p 127.0.0.1:7890
 
   # 批量处理（增加并发数提高速度）
-  assetprobe -b urls.txt -c 10 -q
+  assetprobe -b urls.txt -c 10
 
   # 批量处理并截图
-  assetprobe -b urls.txt -s -c 5 -q
+  assetprobe -b urls.txt -s -c 5
 
   # 访问并截图（自动命名）
   assetprobe -u https://www.bilibili.com -p 127.0.0.1:7890 -s
@@ -91,16 +89,14 @@ function showHelp() {
   assetprobe -u https://www.example.com -s -f
 
   # 静默模式 + 截图
-  assetprobe -u https://www.example.com -p 127.0.0.1:7890 -q -s
+  assetprobe -u https://www.example.com -p 127.0.0.1:7890 -s
 
-  # 单个 URL 导出 JSON
-  assetprobe -u https://www.example.com -j results.json
+  # 输出 JSON 到控制台
+  assetprobe -u https://www.example.com -j
 
-  # 批量处理并导出 JSON（自动保存）
-  assetprobe -b urls.txt -j
-
-  # 批量处理并导出 JSON（指定路径）
-  assetprobe -b urls.txt -j custom/results.json
+  # 保存 JSON 到文件
+  assetprobe -u https://www.example.com -o results.json
+  assetprobe -b urls.txt -o results.json
 
 批量处理文件格式 (urls.txt):
   https://www.example.com
@@ -198,8 +194,8 @@ function parseArgs(args) {
     proxy: null,
     screenshot: null,
     fullPage: false,
-    quiet: false,
-    json: null,
+    json: false,
+    output: null,
     help: false,
     concurrency: 5  // 默认并发数（性能最佳值）
   };
@@ -227,16 +223,12 @@ function parseArgs(args) {
       }
     } else if (arg === '-f' || arg === '--full') {
       result.fullPage = true;
-    } else if (arg === '-q' || arg === '--quiet') {
-      result.quiet = true;
     } else if (arg === '-j' || arg === '--json') {
-      // 检查下一个参数是否是选项（以 - 开头）
-      const nextArg = args[i + 1];
-      if (nextArg && !nextArg.startsWith('-')) {
-        result.json = args[++i];
-      } else {
-        result.json = true; // 自动生成文件名
-      }
+      // -j 只输出 JSON 到控制台，不保存
+      result.json = true;
+    } else if (arg === '-o' || arg === '--output') {
+      // -o 保存 JSON 到文件
+      result.output = args[++i];
     }
   }
 
@@ -250,7 +242,7 @@ function loadFingerprints() {
     const content = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(content);
   } catch (error) {
-    console.warn(`${colors.yellow}⚠️  无法加载指纹库: ${error.message}${colors.reset}`);
+    console.warn(`${colors.yellow}[WARN]  无法加载指纹库: ${error.message}${colors.reset}`);
     return {};
   }
 }
@@ -258,15 +250,58 @@ function loadFingerprints() {
 // 指纹库缓存和索引
 let fingerprintsCache = null;
 let iconIndexCache = null;
+let middlewareFingerprintsCache = null;
+let languageFingerprintsCache = null;
 
-// 构建 icon 索引（hash -> 应用列表）
+// 加载 Middleware 指纹库
+function loadMiddlewareFingerprints() {
+  try {
+    const filePath = path.join(__dirname, 'middleware-fingerprints.json');
+    const content = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(content);
+  } catch (error) {
+    return {};
+  }
+}
+
+// 加载 Language 指纹库
+function loadLanguageFingerprints() {
+  try {
+    const filePath = path.join(__dirname, 'language-fingerprints.json');
+    const content = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(content);
+  } catch (error) {
+    return {};
+  }
+}
+
+// 遍历指纹库（支持混合结构：嵌套和平铺）
+function iterateFingerprints(fingerprints, callback) {
+  for (const [key, value] of Object.entries(fingerprints)) {
+    // 检查是否为嵌套结构（公司->产品）
+    // 如果值的第一个key是icon/title/header/body，则是平铺结构
+    const firstSubKey = Object.keys(value)[0];
+    const isNested = firstSubKey && !['icon', 'title', 'header', 'body'].includes(firstSubKey);
+
+    if (isNested) {
+      // 嵌套结构：公司 -> 产品
+      for (const [productName, features] of Object.entries(value)) {
+        callback(productName, features, key);
+      }
+    } else {
+      // 平铺结构
+      callback(key, value, null);
+    }
+  }
+}
+
 function buildIconIndex(fingerprints) {
   if (iconIndexCache) {
     return iconIndexCache;
   }
 
   const iconIndex = {};
-  for (const [appName, features] of Object.entries(fingerprints)) {
+  iterateFingerprints(fingerprints, (appName, features, company) => {
     if (features.icon && features.icon[0]) {
       // icon 可能包含多个值（用 || 分隔）
       const iconValues = features.icon[0].split(' || ').map(s => s.trim());
@@ -274,10 +309,10 @@ function buildIconIndex(fingerprints) {
         if (!iconIndex[iconValue]) {
           iconIndex[iconValue] = [];
         }
-        iconIndex[iconValue].push({ name: appName, features });
+        iconIndex[iconValue].push({ name: appName, features, company });
       }
     }
-  }
+  });
 
   iconIndexCache = iconIndex;
   return iconIndex;
@@ -471,13 +506,17 @@ async function identifyWebApp(response, page, url, batchMode = false) {
 
   // 如果没有匹配的 icon，应用全部遍历
   if (candidates.length === 0) {
-    candidates = Object.entries(fingerprints).map(([name, features]) => ({ name, features }));
+    candidates = [];
+    iterateFingerprints(fingerprints, (name, features, company) => {
+      candidates.push({ name, features, company });
+    });
   }
 
   // 遍历候选应用进行匹配
   for (const candidate of candidates) {
     const appName = candidate.name;
     const features = candidate.features;
+    const company = candidate.company || null;
 
     let confidence = 0;
 
@@ -517,6 +556,7 @@ async function identifyWebApp(response, page, url, batchMode = false) {
     if (confidence > 0) {
       detected.push({
         name: appName,
+        company: company,
         confidence: confidence
       });
     }
@@ -527,9 +567,51 @@ async function identifyWebApp(response, page, url, batchMode = false) {
   return sorted.slice(0, 3);
 }
 
+// Middleware 指纹识别
+function identifyMiddleware(response) {
+  if (!middlewareFingerprintsCache) {
+    middlewareFingerprintsCache = loadMiddlewareFingerprints();
+  }
+  const fingerprints = middlewareFingerprintsCache;
+  const detected = [];
+  const headerStr = getHeaderString(response).toLowerCase();
+
+  for (const [appName, features] of Object.entries(fingerprints)) {
+    if (features.header) {
+      const headerValue = features.header[0];
+      if (matchCondition(headerValue, headerStr, (v, c) => c.includes(v.toLowerCase()))) {
+        detected.push({ name: appName, confidence: features.header[1] });
+      }
+    }
+  }
+
+  return detected.sort((a, b) => b.confidence - a.confidence).slice(0, 2);
+}
+
+// Language 指纹识别
+function identifyLanguage(response) {
+  if (!languageFingerprintsCache) {
+    languageFingerprintsCache = loadLanguageFingerprints();
+  }
+  const fingerprints = languageFingerprintsCache;
+  const detected = [];
+  const headerStr = getHeaderString(response).toLowerCase();
+
+  for (const [appName, features] of Object.entries(fingerprints)) {
+    if (features.header) {
+      const headerValue = features.header[0];
+      if (matchCondition(headerValue, headerStr, (v, c) => c.includes(v.toLowerCase()))) {
+        detected.push({ name: appName, confidence: features.header[1] });
+      }
+    }
+  }
+
+  return detected.sort((a, b) => b.confidence - a.confidence).slice(0, 2);
+}
+
 // 并发控制处理URL列表
 async function processUrlsConcurrently(urls, options) {
-  const { proxyServer, screenshot, fullPage, quiet, concurrency, jsonOutput } = options;
+  const { proxyServer, screenshot, fullPage, concurrency, jsonOutput } = options;
   const results = [];
   let successCount = 0;
   let failCount = 0;
@@ -554,7 +636,7 @@ async function processUrlsConcurrently(urls, options) {
 
   // 非 JSON 模式才输出开始信息
   if (!jsonOutput) {
-    console.log(`✅ 开始批量处理...\n`);
+    console.log(`[OK] 开始批量处理...\n`);
   }
 
   // 逐个处理URL（带并发控制）
@@ -572,7 +654,6 @@ async function processUrlsConcurrently(urls, options) {
       proxyServer,
       screenshotPath: task.screenshotPath,
       fullPage,
-      quiet: jsonOutput ? true : quiet,  // JSON 模式下强制静默
       batchMode: true,
       batchCollectMode: false
     }).then(result => {
@@ -612,7 +693,7 @@ async function processUrlsConcurrently(urls, options) {
           console.log(`${prefix}${shortUrl} - ${coloredStatus} - ${shortTitle}${webappsStr}`);
         } else {
           const shortUrl = task.url.length > 40 ? task.url.substring(0, 37) + '...' : task.url;
-          console.log(`${prefix}${shortUrl} - ${colors.red}❌${colors.reset} ${result.errorCode || 'Error'}`);
+          console.log(`${prefix}${shortUrl} - ${colors.red}[FAIL]${colors.reset} ${result.errorCode || 'Error'}`);
         }
       } else {
         // JSON 模式：显示进度条到 stderr
@@ -623,7 +704,7 @@ async function processUrlsConcurrently(urls, options) {
         const bar = '█'.repeat(filled) + '░'.repeat(barLength - filled);
 
         // 使用 \r 覆盖当前行
-        process.stderr.write(`\r${colors.cyan}[${completedCount}/${urls.length}]${colors.reset} ${bar} ${percent}% | ${colors.green}✓${successCount}${colors.reset} ${colors.red}✗${failCount}${colors.reset} | ${elapsed}s`);
+        process.stderr.write(`\r${colors.cyan}[${completedCount}/${urls.length}]${colors.reset} ${bar} ${percent}% | ${colors.green}[OK]${successCount}${colors.reset} ${colors.red}[FAIL]${failCount}${colors.reset} | ${elapsed}s`);
       }
 
       return result;
@@ -1485,7 +1566,7 @@ function generateHTMLReport(results, batchDir, totalCount) {
   // 生成每个结果项
   results.forEach((result, index) => {
     const statusClass = result.success ? 'success' : 'failed';
-    const statusText = result.success ? '✓' : '✗';
+    const statusText = result.success ? '[OK]' : '[FAIL]';
     const statusCode = result.success ? result.status : '无法访问';
     const delay = (index * 0.05).toFixed(2);
 
@@ -1685,19 +1766,9 @@ function generateJSONReport(results, batchDir, totalCount, totalTime) {
   const failCount = results.filter(r => !r.success).length;
   const successRate = totalCount > 0 ? ((successCount / totalCount) * 100).toFixed(1) : '0.0';
 
-  // 构建报告对象
+  // 构建报告对象（简化metadata）
   const report = {
-    metadata: {
-      timestamp: timestamp,
-      tool: 'AssetProbe',
-      version: '1.0.0',
-      total_count: totalCount,
-      success_count: successCount,
-      fail_count: failCount,
-      success_rate: `${successRate}%`,
-      total_time: `${totalTime}s`,
-      batch_dir: batchDir
-    },
+    timestamp: timestamp,
     results: results.map((result, index) => {
       const item = {
         index: index + 1,
@@ -1713,14 +1784,35 @@ function generateJSONReport(results, batchDir, totalCount, totalTime) {
         // Web 应用识别结果
         if (result.webapps && result.webapps.length > 0) {
           item.webapps = result.webapps.map(app => ({
-            name: app.name,
+            vendor: app.company || '',
+            product: app.name,
             confidence: Math.round(app.confidence * 100) + '%'
           }));
         } else {
           item.webapps = [];
         }
+
+        // 中间件识别结果
+        if (result.middleware && result.middleware.length > 0) {
+          item.middleware = result.middleware.map(app => ({
+            name: app.name,
+            confidence: Math.round(app.confidence * 100) + '%'
+          }));
+        } else {
+          item.middleware = [];
+        }
+
+        // 语言识别结果
+        if (result.languages && result.languages.length > 0) {
+          item.languages = result.languages.map(app => ({
+            name: app.name,
+            confidence: Math.round(app.confidence * 100) + '%'
+          }));
+        } else {
+          item.languages = [];
+        }
       } else {
-        item.error = result.error || 'Unknown error';
+        // 错误只输出 error_code，不输出详细错误信息
         item.error_code = result.errorCode || 'Error';
       }
 
@@ -1741,7 +1833,7 @@ function readUrlsFromFile(filePath) {
       .filter(line => line && !line.startsWith('#')); // 过滤空行和注释
     return urls;
   } catch (error) {
-    console.error(`❌ 无法读取文件: ${filePath}`);
+    console.error(`[FAIL] 无法读取文件: ${filePath}`);
     console.error(`   ${error.message}`);
     return null;
   }
@@ -1749,24 +1841,24 @@ function readUrlsFromFile(filePath) {
 
 // 处理单个URL
 async function processUrl(url, options) {
-  const { proxyServer, screenshotPath, fullPage, quiet, batchMode, batchCollectMode } = options;
+  const { proxyServer, screenshotPath, fullPage, batchMode, batchCollectMode, jsonMode } = options;
 
-  // 批量收集模式或批量模式：完全不输出，只返回结果
-  if (batchCollectMode || batchMode) {
+  // 批量收集模式、批量模式或JSON模式：完全不输出，只返回结果
+  if (batchCollectMode || batchMode || jsonMode) {
     // 不输出任何内容
   } else {
     console.log(`\n${'─'.repeat(66)}`);
-    console.log(`🌐 正在访问: ${url}`);
+    console.log(`[URL] 正在访问: ${url}`);
     if (proxyServer) {
-      console.log(`🔌 使用代理: ${proxyServer}`);
+      console.log(`[PROXY] 使用代理: ${proxyServer}`);
     } else {
-      console.log(`⚠️  未使用代理`);
+      console.log(`[WARN]  未使用代理`);
     }
     if (screenshotPath) {
       const filename = path.basename(screenshotPath);
-      console.log(`📸 截图保存: ${filename}`);
+      console.log(`[PIC] 截图保存: ${filename}`);
       if (fullPage) {
-        console.log(`📄 完整页面截图`);
+        console.log(`[PIC] 完整页面截图`);
       }
     }
     console.log('');
@@ -1802,17 +1894,6 @@ async function processUrl(url, options) {
   // 用于保存主页面的响应状态
   let mainPageStatus = null;
 
-  // 监听网络请求（仅在非静默模式下）
-  if (!quiet) {
-    page.on('request', request => {
-      console.log(`  ➤ ${request.url()}`);
-    });
-
-    page.on('response', response => {
-      console.log(`  ✓ ${response.status()} ${response.url()}`);
-    });
-  }
-
   // 监听主页面响应，获取状态码
   page.on('response', response => {
     if (response.url() === url || response.url() === url + '/') {
@@ -1822,7 +1903,7 @@ async function processUrl(url, options) {
 
   try {
     if (!batchMode) {
-      console.log('⏳ 正在加载页面...\n');
+      console.log('[LOADING] 正在加载页面...\n');
     }
 
     // 发起页面请求并获取响应
@@ -1842,6 +1923,10 @@ async function processUrl(url, options) {
     // Web 应用指纹识别（内部会再等待1500ms并获取标题）
     const webapps = await identifyWebApp(response, page, url, batchMode);
 
+    // Middleware 和 Language 指纹识别
+    const middleware = identifyMiddleware(response);
+    const languages = identifyLanguage(response);
+
     // 在指纹识别后再次获取标题（此时已经等待足够时间）
     const title = await page.title();
     const finalUrl = page.url();
@@ -1851,15 +1936,15 @@ async function processUrl(url, options) {
     let statusColor = getStatusColor(mainPageStatus);
     const coloredStatus = `${statusColor}${statusText}${colors.reset}`;
 
-    // 批量收集模式或批量模式：不输出，只返回结果
-    if (batchCollectMode || batchMode) {
+    // 批量收集模式、批量模式或JSON模式：不输出，只返回结果
+    if (batchCollectMode || batchMode || jsonMode) {
       if (screenshotPath) {
         await page.screenshot({
           path: screenshotPath,
           fullPage: fullPage
         });
       }
-      return { success: true, url: finalUrl, status: mainPageStatus, title, screenshotPath, webapps };
+      return { success: true, url: finalUrl, status: mainPageStatus, title, screenshotPath, webapps, middleware, languages };
     }
 
     // 单个URL模式：完整框框输出
@@ -1868,7 +1953,10 @@ async function processUrl(url, options) {
     if (webapps && webapps.length > 0) {
       webappsStr = webapps.slice(0, 3).map(app => {
         const percent = Math.round(app.confidence * 100);
-        return `${app.name} [${percent}%]`;
+        // 格式：公司名-原产品名
+        const company = app.company || '';
+        const displayName = company ? `${company}-${app.name}` : app.name;
+        return `${displayName} [${percent}%]`;
       }).join(' | ');
     }
 
@@ -1881,11 +1969,27 @@ async function processUrl(url, options) {
     if (webappsStr) {
       console.log(`Web应用: ${webappsStr}`);
     }
+
+    // Middleware
+    if (middleware.length > 0) {
+      const middlewareStr = middleware.map(app => {
+        const percent = Math.round(app.confidence * 100);
+        return `${app.name} [${percent}%]`;}).join(' | ');
+      console.log(`中间件: ${middlewareStr}`);
+    }
+
+    // Language
+    if (languages.length > 0) {
+      const languagesStr = languages.map(app => {
+        const percent = Math.round(app.confidence * 100);
+        return `${app.name} [${percent}%]`;}).join(' | ');
+      console.log(`语言: ${languagesStr}`);
+    }
     console.log('');
 
     // 保存截图
     if (screenshotPath) {
-      console.log('💾 正在保存截图...');
+      console.log('[SAVE] 正在保存截图...');
       await page.screenshot({
         path: screenshotPath,
         fullPage: fullPage
@@ -1895,15 +1999,14 @@ async function processUrl(url, options) {
       const stats = fs.statSync(screenshotPath);
       const fileSizeKB = (stats.size / 1024).toFixed(2);
 
-      console.log(`✅ 截图已保存: ${absolutePath}`);
-      console.log(`   文件大小: ${fileSizeKB} KB\n`);
+      console.log(`[OK] 截图已保存: ${absolutePath} 文件大小: ${fileSizeKB} KB`);
     }
 
-    return { success: true, url: finalUrl, status: mainPageStatus, title, webapps };
+    return { success: true, url: finalUrl, status: mainPageStatus, title, webapps, middleware, languages };
 
   } catch (error) {
-    // 批量收集模式或批量模式：不输出，只返回错误代码
-    if (batchCollectMode || batchMode) {
+    // 批量收集模式、批量模式或JSON模式：不输出，只返回错误代码
+    if (batchCollectMode || batchMode || jsonMode) {
       let errorMsg = error.message;
 
       // 提取错误代码（如 ERR_CONNECTION_RESET）
@@ -1922,7 +2025,7 @@ async function processUrl(url, options) {
       }
       return { success: false, url, error: error.message, errorCode: errorMsg };
     }
-    console.error('\n❌ 发生错误:');
+    console.error('\n[FAIL] 发生错误:');
     console.error(`   类型: ${error.name}`);
     console.error(`   信息: ${error.message}`);
     console.error('');
@@ -1946,28 +2049,28 @@ async function processUrl(url, options) {
     const urls = readUrlsFromFile(args.batchFile);
 
     if (!urls || urls.length === 0) {
-      console.error('❌ URL列表为空或文件不存在\n');
+      console.error('[FAIL] URL列表为空或文件不存在\n');
       process.exit(1);
     }
 
     // JSON 模式下不输出任何进度信息
     if (!args.json) {
-      console.log(`\n📋 批量处理模式`);
-      console.log(`📄 文件: ${args.batchFile}`);
-      console.log(`🔗 URL数量: ${urls.length}`);
+      console.log(`\n[BATCH] 批量处理模式`);
+      console.log(`[FILE] 文件: ${args.batchFile}`);
+      console.log(`[URL] URL数量: ${urls.length}`);
       if (args.proxy) {
-        console.log(`🔌 使用代理: ${args.proxy}`);
+        console.log(`[PROXY] 使用代理: ${args.proxy}`);
       }
       if (args.screenshot) {
-        console.log(`📸 启用截图`);
+        console.log(`[PIC] 启用截图`);
       }
-      console.log(`⚡ 并发数: ${args.concurrency}`);
+      console.log(`[CONC] 并发数: ${args.concurrency}`);
       console.log('');
     } else {
       // JSON 模式：输出开始信息到 stderr
-      console.error(`\n${colors.cyan}📋 开始批量处理${colors.reset}`);
-      console.error(`🔗 URL数量: ${colors.green}${urls.length}${colors.reset}`);
-      console.error(`⚡ 并发数: ${args.concurrency}`);
+      console.error(`\n${colors.cyan}[BATCH] 开始批量处理${colors.reset}`);
+      console.error(`[URL] URL数量: ${colors.green}${urls.length}${colors.reset}`);
+      console.error(`[CONC] 并发数: ${args.concurrency}`);
       console.error('');
     }
 
@@ -1976,82 +2079,67 @@ async function processUrl(url, options) {
       proxyServer: args.proxy,
       screenshot: args.screenshot,
       fullPage: args.fullPage,
-      quiet: args.quiet,
       concurrency: args.concurrency,
       jsonOutput: !!args.json  // 传递 JSON 模式标志
     });
 
-    // JSON 模式：直接输出 JSON 到控制台并保存文件
+    // JSON 模式：输出 JSON 到控制台
     if (args.json) {
       const jsonReport = generateJSONReport(detailedResults, batchDir, urls.length, totalTime);
-
-      // 输出完成信息到 stderr
-      console.error(`\n${colors.green}✓ 处理完成！${colors.reset}`);
-      console.error(`⏱️  总耗时: ${totalTime}s`);
-      console.error(`📊 结果: ${colors.green}${successCount}${colors.reset} 成功 | ${colors.red}${failCount}${colors.reset} 失败\n`);
 
       // 输出 JSON 到控制台
       console.log(jsonReport);
 
-      // 保存到文件
-      let jsonPath;
-      if (args.json === true) {
-        // 自动保存到报告目录
-        const reportDirPath = path.join(process.cwd(), 'screenshots', 'batch', batchDir);
-        if (!fs.existsSync(reportDirPath)) {
-          fs.mkdirSync(reportDirPath, { recursive: true });
-        }
-        jsonPath = path.join(reportDirPath, 'results.json');
-      } else {
-        // 用户指定的路径
-        jsonPath = args.json;
+      // 保存到文件（如果指定了 -o 参数）
+      if (args.output) {
+        const jsonPath = args.output;
         const jsonDir = path.dirname(jsonPath);
         if (jsonDir !== '.' && !fs.existsSync(jsonDir)) {
           fs.mkdirSync(jsonDir, { recursive: true });
         }
+        fs.writeFileSync(jsonPath, jsonReport, 'utf-8');
+        console.error(`\n[PIC] JSON报告已保存: ${jsonPath}`);
       }
-
-      fs.writeFileSync(jsonPath, jsonReport, 'utf-8');
-      // JSON 模式下，将文件路径输出到 stderr，避免干扰 JSON 输出
-      console.error(`\n📋 JSON报告已保存: ${jsonPath}`);
 
       return;
     }
 
-    // 非 JSON 模式：正常输出结果
-    console.log('');
-    console.log(`\n${'═'.repeat(66)}`);
-    console.log(`📊 批量处理完成`);
-    console.log(`${'═'.repeat(66)}`);
-    console.log(`总计: ${urls.length} 个URL`);
-    console.log(`✅ 成功: ${successCount} 个`);
-    console.log(`❌ 失败: ${failCount} 个`);
-    console.log(`⏱️  总耗时: ${totalTime} 秒`);
-
-    // 生成HTML报告
-    const htmlReport = generateHTMLReport(detailedResults, batchDir, urls.length);
-    const reportPath = path.join(process.cwd(), 'screenshots', 'batch', batchDir, 'report.html');
-
-    // 确保目录存在
-    const reportDirPath = path.join(process.cwd(), 'screenshots', 'batch', batchDir);
-    if (!fs.existsSync(reportDirPath)) {
-      fs.mkdirSync(reportDirPath, { recursive: true });
+    // 保存 JSON 到文件（如果指定了 -o 参数）
+    if (args.output) {
+      const jsonReport = generateJSONReport(detailedResults, batchDir, urls.length, totalTime);
+      const jsonPath = args.output;
+      const jsonDir = path.dirname(jsonPath);
+      if (jsonDir !== '.' && !fs.existsSync(jsonDir)) {
+        fs.mkdirSync(jsonDir, { recursive: true });
+      }
+      fs.writeFileSync(jsonPath, jsonReport, 'utf-8');
+      console.error(`[PIC] JSON报告已保存: ${jsonPath}`);
     }
 
-    fs.writeFileSync(reportPath, htmlReport, 'utf-8');
-    console.log(`📄 HTML报告: screenshots/batch/${batchDir}/report.html`);
+    // 非 JSON 模式：正常输出结果（移除统计头部，直接输出结果）
 
+    // 只有使用截图时才生成HTML报告
     if (args.screenshot) {
-      console.log(`📁 截图保存: screenshots/batch/${batchDir}/`);
+      const htmlReport = generateHTMLReport(detailedResults, batchDir, urls.length);
+      const reportPath = path.join(process.cwd(), 'screenshots', 'batch', batchDir, 'report.html');
+
+      // 确保目录存在
+      const reportDirPath = path.join(process.cwd(), 'screenshots', 'batch', batchDir);
+      if (!fs.existsSync(reportDirPath)) {
+        fs.mkdirSync(reportDirPath, { recursive: true });
+      }
+
+      fs.writeFileSync(reportPath, htmlReport, 'utf-8');
+      console.log(`[FILE] HTML报告: screenshots/batch/${batchDir}/report.html`);
+      console.log(`[DIR] 截图保存: screenshots/batch/${batchDir}/`);
     }
-    console.log(`${'═'.repeat(66)}\n`);
 
     return;
   }
 
   // 单个URL模式
   if (!args.url) {
-    console.log('❌ 错误: 请提供要访问的 URL 或使用 -b 指定批量文件\n');
+    console.log('[FAIL] 错误: 请提供要访问的 URL 或使用 -b 指定批量文件\n');
     showHelp();
     process.exit(1);
   }
@@ -2071,47 +2159,53 @@ async function processUrl(url, options) {
     }
   }
 
-  // 处理单个 URL 并获取结果（JSON 模式下强制静默）
+  // 处理单个 URL
   const result = await processUrl(targetUrl, {
     proxyServer,
     screenshotPath,
     fullPage: args.fullPage,
-    quiet: args.json ? true : args.quiet  // JSON 模式下强制静默
+    jsonMode: args.json
   });
 
-  // 如果指定了 JSON 输出
+  // JSON 模式：输出 JSON 到控制台
   if (args.json) {
-    // 为单个 URL 生成 JSON（复用批量报告函数）
     const jsonReport = generateJSONReport([result], null, 1, '0');
-
-    // 输出 JSON 到控制台
     console.log(jsonReport);
 
-    // 保存到文件
-    let jsonPath;
-    if (args.json === true) {
-      // 自动生成文件名
-      const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
-      jsonPath = `result_${timestamp}.json`;
-    } else {
-      // 用户指定的路径
-      jsonPath = args.json;
+    // 保存到文件（如果指定了 -o 参数）
+    if (args.output) {
+      const jsonPath = args.output;
+      const jsonDir = path.dirname(jsonPath);
+      if (jsonDir !== '.' && !fs.existsSync(jsonDir)) {
+        fs.mkdirSync(jsonDir, { recursive: true });
+      }
+      fs.writeFileSync(jsonPath, jsonReport, 'utf-8');
+      if (result.success) {
+        console.error(`\n${colors.green}[OK] 成功${colors.reset} - ${colors.cyan}${result.title || 'N/A'}${colors.reset}`);
+        console.error(`[PIC] JSON报告已保存: ${jsonPath}`);
+      } else {
+        console.error(`\n${colors.red}[FAIL] 失败${colors.reset} - ${result.errorCode || 'Error'}`);
+        console.error(`[PIC] JSON报告已保存: ${jsonPath}`);
+      }
     }
+    return;
+  }
 
-    // 确保目录存在
+  // 保存 JSON 到文件（如果指定了 -o 参数）
+  if (args.output) {
+    const jsonReport = generateJSONReport([result], null, 1, '0');
+    const jsonPath = args.output;
     const jsonDir = path.dirname(jsonPath);
     if (jsonDir !== '.' && !fs.existsSync(jsonDir)) {
       fs.mkdirSync(jsonDir, { recursive: true });
     }
-
     fs.writeFileSync(jsonPath, jsonReport, 'utf-8');
-    // JSON 模式下，将文件路径输出到 stderr，避免干扰 JSON 输出
     if (result.success) {
-      console.error(`\n${colors.green}✓ 成功${colors.reset} - ${colors.cyan}${result.title || 'N/A'}${colors.reset}`);
-      console.error(`📋 JSON报告已保存: ${jsonPath}`);
+      console.error(`\n${colors.green}[OK] 成功${colors.reset} - ${colors.cyan}${result.title || 'N/A'}${colors.reset}`);
+      console.error(`[PIC] JSON报告已保存: ${jsonPath}`);
     } else {
-      console.error(`\n${colors.red}✗ 失败${colors.reset} - ${result.errorCode || 'Error'}`);
-      console.error(`📋 JSON报告已保存: ${jsonPath}`);
+      console.error(`\n${colors.red}[FAIL] 失败${colors.reset} - ${result.errorCode || 'Error'}`);
+      console.error(`[PIC] JSON报告已保存: ${jsonPath}`);
     }
   }
 })();

@@ -26,6 +26,8 @@
   "files": [
     "assetprobe.js",
     "webapp-fingerprints.json",
+    "middleware-fingerprints.json",
+    "language-fingerprints.json",
     "package.json",
     "README.md",
     "LICENSE"

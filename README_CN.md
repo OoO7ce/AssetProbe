@@ -105,11 +105,11 @@ assetprobe -u https://www.example.com -s
 # 截取完整页面
 assetprobe -u https://www.example.com -s -f
 
-# 静默模式
-assetprobe -u https://www.example.com -q
+# 导出 JSON 到控制台
+assetprobe -u https://www.example.com -j
 
-# 导出 JSON 报告
-assetprobe -u https://www.example.com -j results.json
+# 保存 JSON 到文件
+assetprobe -u https://www.example.com -j -o results.json
 ```
 
 ### 批量处理
@@ -118,14 +118,14 @@ assetprobe -u https://www.example.com -j results.json
 # 批量处理 URL 列表
 assetprobe -b urls.txt
 
-# 批量处理并截图
-assetprobe -b urls.txt -s -q
+# 批量处理并截图（自动生成HTML报告）
+assetprobe -b urls.txt -s
 
-# 批量处理并导出 JSON（自动命名）
+# 批量处理并导出 JSON
 assetprobe -b urls.txt -j
 
-# 批量处理并导出 JSON（指定路径）
-assetprobe -b urls.txt -j custom/results.json
+# 保存 JSON 到文件
+assetprobe -b urls.txt -j -o results.json
 
 # 调整并发数（默认 5，范围 5-100）
 assetprobe -b urls.txt -c 20
@@ -155,19 +155,22 @@ https://192.168.1.1:8080
 ### JSON 报告
 
 ```bash
-# 单个 URL 导出
-assetprobe -u https://example.com -j results.json
+# 单个 URL - 输出到控制台
+assetprobe -u https://example.com -j
 
-# 批量处理导出（自动命名）
+# 单个 URL - 保存到文件
+assetprobe -u https://example.com -j -o results.json
+
+# 批量处理 - 输出到控制台
 assetprobe -b urls.txt -j
 ```
 
-JSON 报告包含完整的数据：
+JSON 报告包含：
 - URL 和状态码
 - 网站标题
-- Web 应用指纹（置信度）
-- 截图路径
-- 统计信息
+- Web 应用指纹（公司、产品、置信度）
+- 中间件
+- 编程语言
 
 ## 📐 参数说明
 
@@ -179,8 +182,8 @@ JSON 报告包含完整的数据：
 | `-c, --concurrency <数量>` | 并发处理数量 | 5 |
 | `-s, --screenshot [文件]` | 保存网页截图 | - |
 | `-f, --full` | 截取完整页面 | - |
-| `-q, --quiet` | 静默模式，不显示网络请求详情 | - |
-| `-j, --json [文件]` | 导出 JSON 格式报告 | - |
+| `-j, --json` | 输出 JSON 到控制台 | - |
+| `-o, --output <文件>` | 保存 JSON 到文件 | - |
 | `-h, --help` | 显示帮助信息 | - |
 
 ## 🖼️ 截图说明
@@ -273,10 +276,13 @@ npm uninstall -g assetprobe
 assetprobe/
 ├── assetprobe.js              # 主程序
 ├── package.json               # 项目配置
-├── README.md                  # 使用说明
+├── README.md                  # 使用说明（英文）
+├── README_CN.md              # 使用说明（中文）
 ├── LICENSE                    # 许可证
 ├── .npmignore                 # npm 发布忽略规则
-├── webapp-fingerprints.json   # Web 应用指纹库（17,000+）
+├── webapp-fingerprints.json   # Web 应用指纹库
+├── middleware-fingerprints.json # 中间件指纹库
+├── language-fingerprints.json  # 编程语言指纹库
 └── screenshots/               # 截图保存目录（自动创建）
 ```
 

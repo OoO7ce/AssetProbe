@@ -103,11 +103,11 @@ assetprobe -u https://www.example.com -s
 # Full page screenshot
 assetprobe -u https://www.example.com -s -f
 
-# Quiet mode
-assetprobe -u https://www.example.com -q
+# Export JSON to console
+assetprobe -u https://www.example.com -j
 
-# Export JSON report
-assetprobe -u https://www.example.com -j results.json
+# Save JSON to file
+assetprobe -u https://www.example.com -j -o results.json
 ```
 
 ### Batch Processing
@@ -116,14 +116,14 @@ assetprobe -u https://www.example.com -j results.json
 # Batch process URL list
 assetprobe -b urls.txt
 
-# Batch process with screenshot
-assetprobe -b urls.txt -s -q
+# Batch process with screenshot (auto-generate HTML report)
+assetprobe -b urls.txt -s
 
-# Batch process with JSON export (auto-named)
+# Batch process with JSON export
 assetprobe -b urls.txt -j
 
-# Batch process with JSON export (specified path)
-assetprobe -b urls.txt -j custom/results.json
+# Save JSON to file
+assetprobe -b urls.txt -j -o results.json
 
 # Adjust concurrency (default 5, range 5-100)
 assetprobe -b urls.txt -c 20
@@ -153,19 +153,22 @@ After batch processing, HTML reports are auto-generated with:
 ### JSON Report
 
 ```bash
-# Single URL export
-assetprobe -u https://example.com -j results.json
+# Single URL - output to console
+assetprobe -u https://example.com -j
 
-# Batch process with export (auto-named)
+# Single URL - save to file
+assetprobe -u https://example.com -j -o results.json
+
+# Batch - output to console
 assetprobe -b urls.txt -j
 ```
 
-JSON report contains complete data:
+JSON report contains:
 - URL and status code
 - Website title
-- Web app fingerprint (confidence)
-- Screenshot path
-- Statistics
+- Web app fingerprint (company, product, confidence)
+- Middleware
+- Programming language
 
 ## Options
 
@@ -177,8 +180,8 @@ JSON report contains complete data:
 | `-c, --concurrency <number>` | Concurrent processing count | 5 |
 | `-s, --screenshot [file]` | Save website screenshot | - |
 | `-f, --full` | Capture full page | - |
-| `-q, --quiet` | Quiet mode, hide network request details | - |
-| `-j, --json [file]` | Export JSON report | - |
+| `-j, --json` | Output JSON to console | - |
+| `-o, --output <file>` | Save JSON to file | - |
 | `-h, --help` | Show help | - |
 
 ## Screenshot Notes
@@ -271,10 +274,13 @@ npm uninstall -g assetprobe
 assetprobe/
 ├── assetprobe.js              # Main program
 ├── package.json               # Project config
-├── README.md                  # Documentation
+├── README.md                  # Documentation (English)
+├── README_CN.md               # Documentation (Chinese)
 ├── LICENSE                    # License
 ├── .npmignore                 # npm ignore rules
-├── webapp-fingerprints.json   # Web app fingerprint database (17,000+)
+├── webapp-fingerprints.json   # Web app fingerprint database
+├── middleware-fingerprints.json # Middleware fingerprint database
+├── language-fingerprints.json  # Programming language fingerprint database
 └── screenshots/               # Screenshot directory (auto-created)
 ```
 

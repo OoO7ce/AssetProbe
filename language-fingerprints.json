@@ -1,0 +1,23 @@
+{
+  "PHP": {
+    "header": ["x-powered-by: PHP || set-cookie: PHPSESSID", 0.7]
+  },
+  "Java": {
+    "header": ["x-powered-by: Java || set-cookie: JSESSIONID", 0.7]
+  },
+  "Python": {
+    "header": ["server: Python", 0.7]
+  },
+  "ASP.NET": {
+    "header": ["x-powered-by: ASP.NET || x-aspnet-version: || set-cookie: ASPSESSIONID", 0.7]
+  },
+  "Node.js": {
+    "header": ["x-powered-by: Express", 0.6]
+  },
+  "Spring": {
+    "header": ["x-application-context:", 0.8]
+  },
+  "JFinal": {
+    "header": ["server: JFinal", 0.8]
+  }
+}

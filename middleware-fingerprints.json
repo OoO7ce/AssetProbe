@@ -1,0 +1,68 @@
+{
+  "Apache": {
+    "header": ["server: Apache",0.8]
+  },
+  "Nginx": {
+    "header": ["server: Nginx",0.8]
+  },
+  "IIS": {
+    "header": ["server: Microsoft-IIS",0.8]
+  },
+  "LiteSpeed": {
+    "header": ["server: litespeed",0.8]
+  },
+  "Apache Tomcat": {
+    "header": ["server: Apache-Coyote",0.9]
+  },
+  "Jetty": {
+    "header": ["server: Jetty",0.8]
+  },
+  "Weblogic": {
+    "body": ["Error 404--Not Found",0.8]
+  },
+  "Resin": {
+    "header": ["server: Resin",0.8]
+  },
+  "Cloudflare": {
+    "header": ["server: cloudflare",0.8]
+  },
+  "Varnish": {
+    "header": ["server: Varnish",0.8]
+  },
+  "OpenResty": {
+    "header": ["server: openresty",0.8]
+  },
+  "Tengine": {
+    "header": ["server: Tengine",0.8]
+  },
+  "Gunicorn": {
+    "header": ["gunicorn",0.8]
+  },
+  "Passenger": {
+    "header": ["phusion_passenger",0.8]
+  },
+  "Caddy": {
+    "title": ["Caddy",0.8]
+  },
+  "Plesk": {
+    "header": ["x-powered-by: Plesk",0.7]
+  },
+  "JumpServer": {
+    "header": ["Server: Jump_server",0.7]
+  },
+  "OpenSSL": {
+    "header": ["server: OpenSSL",0.6]
+  },
+  "Mod_wsgi": {
+    "header": ["server: mod_wsgi",0.6]
+  },
+  "Mod_fcgid": {
+    "header": ["server: mod_fcgid",0.6]
+  },
+  "BWS": {
+    "header": ["server: bws",0.8]
+  },
+  "Zeus": {
+    "header": ["server: Zeus",0.8]
+  }
+}

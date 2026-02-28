@@ -20,14 +20,6 @@ screenshots/
 *.bak
 *_bak.*
 
-# Test files
-test.txt
-sx.txt
-yc.txt
-test-urls.txt
-
-# Convert tool (not needed for distribution)
-convert-fingerprints.js
 
 # Claude Code
 .claude/
@@ -39,6 +31,3 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
-
-# Old fingerprint database (backup)
-webapp-fingerprints_bak.json
