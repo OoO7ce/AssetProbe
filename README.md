@@ -2,7 +2,7 @@
 
 # AssetProbe
 
-[![npm version](https://badge.fury.io/js/assetprobe.svg)](https://www.npmjs.com/package/assetprobe)
+[![npm version](https://img.shields.io/npm/v/assetprobe)](https://www.npmjs.com/package/assetprobe)
 [![npm downloads](https://img.shields.io/npm/dm/assetprobe)](https://www.npmjs.com/package/assetprobe)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
 [![License](https://img.shields.io/npm/l/assetprobe)](LICENSE)
@@ -12,11 +12,11 @@ Web asset discovery and reconnaissance tool with batch processing, screenshot, H
 
 ## Features
 
-- 🌐 **Dynamic Rendering**: Supports SPA, React/Vue/Angular and other JavaScript-rendered websites
-- 🔄 **Concurrent Processing**: Batch process URLs with default concurrency of 5 (adjustable 10-100)
-- 📸 **Screenshot**: Supports screenshot and full-page screenshot
-- 📊 **Multi-format Reports**: Auto-generate HTML reports and JSON exports
-- 🎯 **Fingerprint Recognition**: Identify web apps and tech stacks based on 17,000+ fingerprint database
+- 🌐 **Dynamic Rendering**: Powered by Playwright, renders JavaScript-heavy sites (SPA, React, Vue, Angular)
+- 🔄 **Concurrent Processing**: Batch process URLs with configurable concurrency (default: 5, range: 5-100)
+- 📸 **Screenshot**: Capture screenshots or full-page screenshots
+- 📊 **Multi-format Reports**: Auto-generated HTML reports and JSON exports
+- 🎯 **Fingerprint Recognition**: Identify web apps (17,000+ fingerprints), middleware, and programming languages
 
 ## Use Cases
 
@@ -164,11 +164,12 @@ assetprobe -b urls.txt -j
 ```
 
 JSON report contains:
-- URL and status code
-- Website title
-- Web app fingerprint (company, product, confidence)
-- Middleware
-- Programming language
+- Timestamp
+- Results: URL, status code, title
+- Web app fingerprint (vendor, product, confidence)
+- Middleware detection
+- Programming language detection
+- Error codes for failed requests
 
 ## Options
 

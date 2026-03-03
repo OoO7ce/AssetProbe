@@ -2,7 +2,7 @@
 
 # AssetProbe
 
-[![npm version](https://badge.fury.io/js/assetprobe.svg)](https://www.npmjs.com/package/assetprobe)
+[![npm version](https://img.shields.io/npm/v/assetprobe)](https://www.npmjs.com/package/assetprobe)
 [![npm downloads](https://img.shields.io/npm/dm/assetprobe)](https://www.npmjs.com/package/assetprobe)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
 [![License](https://img.shields.io/npm/l/assetprobe)](LICENSE)
@@ -14,11 +14,11 @@ Web asset discovery and reconnaissance tool with batch processing, screenshot, H
 
 ## ✨ 主要功能
 
-- 🌐 **动态渲染**：支持 SPA、React/Vue/Angular 等需要 JavaScript 渲染的网站
-- 🔄 **并发处理**：批量处理 URL，默认并发数 5，可调范围 10-100
+- 🌐 **动态渲染**：基于 Playwright，支持渲染 JavaScript 渲染的网站（SPA、React、Vue、Angular）
+- 🔄 **并发处理**：批量处理 URL，可配置并发数（默认：5，可调范围：5-100）
 - 📸 **网页截图**：支持截图和完整页面截图
 - 📊 **多格式报告**：自动生成 HTML 报告和 JSON 格式导出
-- 🎯 **指纹识别**：基于 17,000+ 指纹库自动识别 Web 应用和技术栈
+- 🎯 **指纹识别**：识别 Web 应用（17,000+ 指纹）、中间件和编程语言
 
 ## 🎯 应用场景
 
@@ -166,11 +166,12 @@ assetprobe -b urls.txt -j
 ```
 
 JSON 报告包含：
-- URL 和状态码
-- 网站标题
-- Web 应用指纹（公司、产品、置信度）
-- 中间件
-- 编程语言
+- 时间戳
+- 结果：URL、状态码、标题
+- Web 应用指纹（厂商、产品、置信度）
+- 中间件识别
+- 编程语言识别
+- 失败请求的错误代码
 
 ## 📐 参数说明
 
