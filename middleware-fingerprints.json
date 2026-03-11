@@ -64,5 +64,8 @@
   },
   "Zeus": {
     "header": ["server: Zeus"]
+  },
+  "TongWeb": {
+    "header": ["Server: TongWeb Server"]
   }
 }

@@ -33,8 +33,7 @@
       "body":["Script/SmcScript.js?version=",0.8]
     },
     "HuaWei-Auth-Server": {
-      "header":["server: huawei auth-http server",0.8],
-      "body":["75718c9a-f029-11d1-a1ac-00c04fb6c223",0.8]
+      "header":["server: huawei auth-http server",0.8]
     },
     "HuaWei-Router": {
       "body":["huawei technologies",0.8],
@@ -1503,17 +1502,16 @@
     "Hikvision-iVMS-8700": {
       "body":["src=\"/portal/common/js/commonvar.js",0.8]
     },
-    "Camera": {
-      "body":["href=\"/doc/css/rzslider.css\"",0.8]
-    },
     "Hikvision-Face-analysis-system": {
       "body":["人脸分析子系统",0.8]
     },
-    "Ace": {
-      "icon":["-183163807",0.8]
+    "海康威视视频监控系统": {
+      "icon": ["999357577", 0.6],
+      "body": ["oLan.useActivePwd", 0.2]
     },
-    "IP Camera": {
-      "icon":["492290497",0.8]
+    "海康威视综合安防管理平台": {
+      "icon": ["136203464 || -1882967125 || 1965660451", 0.8],
+      "title": ["综合安防管理平台", 0.1]
     }
   },
   "泛微": {
@@ -1523,7 +1521,7 @@
     },
     "泛微 E-Mobile": {
       "icon":["1578525679",0.6],
-      "body":["e-mobile",0.1]
+      "body":["Weaver E-Mobile",0.4]
     },
     "泛微 e-office": {
       "icon":["1578525679",0.6],
@@ -1552,7 +1550,7 @@
     },
     "Weaver-EMobile": {
       "title":["移动管理平台",0.8],
-      "body":["window.apiprifix = \"/emp\";",0.8]
+      "body":["window.apiprifix = \"/emp\";",0.2]
     },
     "ecology泛微-协同商务系统-ecology": {
       "body":["index_wev8.js && jquery_wev8.js",0.8]
@@ -1571,9 +1569,6 @@
     }
   },
   "天融信": {
-    "天融信防火墙": {
-      "body":["TOPSEC && image/aaa.png && username",0.8]
-    },
     "TOPSEC-Firewall": {
       "body":["web user interface",0.8],
       "header":["topwebserver",0.8]
@@ -1616,6 +1611,16 @@
     },
     "Sentry": {
       "icon":["2063428236",0.8]
+    },
+    "天融信防火墙": {
+      "icon": ["368392543 || -2019013898", 0.2],
+      "title": ["Web User Login", 0.1],
+      "header": ["server: TOPSEC || Server: topsec", 0.6],
+      "body": ["/cgi/maincgi.cgi?Url=VerifyCode", 0.1]
+    },
+    "天融信上网行为管理系统": {
+      "title": ["Login @ Reporter", 0.1],
+      "body": ["dkey_activex_download.php", 0.5]
     }
   },
   "绿盟科技": {
@@ -1689,7 +1694,8 @@
       "body":["SANGFOR && NGAF && login",0.8]
     },
     "深信服运维安全管理系统": {
-      "icon":["854881081",0.8]
+      "icon": ["854881081", 0.3],
+      "body": ["/fort/trust/version/sxf/trust/", 0.7]
     },
     "深信服安全感知平台": {
       "body":["安全感知平台 && login.js && apps",0.8]
@@ -1895,8 +1901,9 @@
     "YApi可视化接口管理平台": {
       "body":["YApi && id=\"yapi\" && prd && 可视化接口管理平台",0.8]
     },
-    "若依(RuoYi)-管理系统": {
-      "body":["/ry-ui.css && username && rememberme",0.8]
+    "若依(RuoYi)管理系统": {
+      "icon": ["706913071", 0.4],
+      "body": ["/js/ry-ui.js", 0.5]
     },
     "nps": {
       "body":["nps && ehang && login",0.8]
@@ -1991,8 +1998,9 @@
     "Spring-Framework": {
       "body":["org.springframework.web.servlet.i18n.cookielocaleresolver.locale=",0.8]
     },
-    "spring-boot": {
-      "icon":["116323821",0.8]
+    "SpringBoot": {
+      "icon": ["116323821", 0.2],
+      "body": ["Whitelabel Error Page", 0.8]
     }
   },
   "浪潮信息": {
@@ -2337,8 +2345,7 @@
     "icon":["-167656799",0.8]
   },
   "Jenkins": {
-    "header":["content-type: text/plain",0.8],
-    "body":["jenkins-agent-protocols",0.8],
+    "header": ["X-Jenkins-Session", 0.4],
     "icon":["81586312",0.8]
   },
   "WordPress": {
@@ -2427,11 +2434,9 @@
     }
   },
   "通达信科": {
-    "通达 OA": {
-      "icon":["-759108386",0.6]
-    },
     "通达OA": {
-      "body":["/images/tongda.ico",0.8]
+      "icon": ["-759108386 || -99198135", 0.6],
+      "body": ["tongda", 0.3]
     }
   },
   "群晖": {
@@ -2547,7 +2552,8 @@
     "body":["中新金盾信息安全管理系统 && login && useusbkey",0.8]
   },
   "东胜物流软件": {
-    "icon":["1367420509",1]
+    "icon": ["1367420509", 0.4],
+    "body": ["list_subcompany", 0.6]
   },
   "蓝盾防火墙": {
     "body":["蓝盾 && Bluedon && default/js/act/login.js",0.8]
@@ -2626,9 +2632,6 @@
   },
   "Node.js": {
     "header":["pump.io",0.8]
-  },
-  "XWiki": {
-    "body":["<meta name=\"wiki\" content=\"xwiki\"/>",0.8]
   },
   "XYCMS": {
     "body":["advfile/ad12.js",0.8]
@@ -2738,8 +2741,9 @@
   "好视通-fastmeeting": {
     "body":["login/createQRCode.do && resources/commonImage/favicon.ico && 用户登录",0.8]
   },
-  "孚盟云": {
-    "body":["fumasoft && 孚盟云",0.8]
+  "孚盟云CRM": {
+    "icon":["1533124028",0.7],
+    "body":["hidLicResult",0.3]
   },
   "宝塔面板": {
     "body":["bt.cn && 扫码登录",0.8]
@@ -2757,7 +2761,8 @@
     "body":["<script language='javascript'>window.parent.location.href='login.php';</script>",0.8]
   },
   "金和协同管理平台": {
-    "body":["c6/jhsoft.web.login && closewindownoask",0.8]
+    "icon":["1281985584",0.4],
+    "body":["/JHsoft.UI.Lib || /jc6/platform",0.6]
   },
   "齐治堡垒机": {
     "body":["//xfpverifyExec.jsp;",0.8]
@@ -2822,13 +2827,132 @@
   "Hillstone-StoneOS": {
     "body":["'hillstone stoneos software version",0.8]
   },
-  "Rockoa-OA": {
-    "body":["技术支持：<a href=\"http://www.rockoa.com/\"",0.8]
+  "信呼OA": {
+    "icon": ["1652488516", 0.6],
+    "body": ["rockoa.com", 0.4]
   },
   "phpcms": {
     "body":["<a href=\"http://www.phpcms.cn\" target=\"_blank\">PHPCMS</a>",0.8]
   },
   "ESPCMS": {
     "body":["/templates/default/style/tempates_div.css && infolist_fff",0.8]
+  },
+  "天地伟业Easy7": {
+    "body":["/Easy7/apps/WebService/",1]
+  },
+  "天锐绿盾审批系统": {
+    "icon":["410332006 || -1121575488",0.7],
+    "body":["Tipray LeaderEIS Approving System",0.3]
+  },
+  "深科特LEAN MES系统": {
+    "icon":["1505132128",0.6],
+    "body":["Content/js/skt.utility.checkmobile.js",0.4]
+  },
+  "百卓Smart管理平台": {
+    "body": ["tab_findpwd || find_username", 1]
+  },
+  "Hoverfly": {
+    "icon": ["1357234275", 1]
+  },
+  "NetMizer日志管理系统": {
+    "icon": ["-759778190", 0.9],
+    "body": ["NetMizer", 0.1]
+  },
+  "nuuo摄像头": {
+    "title": ["Network Video Recorder Login", 1]
+  },
+  "Optilink": {
+    "body": ["login-a-optilink", 0.9]
+  },
+  "TurboMail邮件系统": {
+    "body": ["tmw/1/getpassword.jsp", 1]
+  },
+  "WAVLINK": {
+    "icon": ["-1350437236", 0.8],
+    "body": ["var Brand=\"WAVLINK\"", 0.2]
+  },
+  "西部数据 NAS": {
+    "icon": ["-1074357885", 0.2],
+    "body": ["WDMyCloud && wdc.custhelp.com", 0.8]
+  },
+  "XWiki": {
+    "icon": ["831700033 || 1245897666", 0.2],
+    "body": ["data-xwiki-reference", 0.8]
+  },
+  "福建科立讯指挥调度管理平台": {
+    "body": ["app/structure/departments.php", 1]
+  },
+  "富勒仓储管理系统": {
+    "icon": ["2050995649 || 1155586370", 0.4],
+    "body": ["/logincenter/wmslogin", 0.5]
+  },
+  "Panalog 日志审计系统": {
+    "icon": ["1286151072", 0.4],
+    "body": ["Maintain/cloud_index.php", 0.5]
+  },
+  "Ncast盈可视高清智能录播系统": {
+    "icon": ["-1253433910", 0.5],
+    "body": ["/manage-check_Login", 0.5]
+  },
+  "普华 PowerPMS": {
+    "body": ["Power.login.init && Power_login_btn", 1]
+  },
+  "维达外贸客户关系管理系统": {
+    "body": ["/util/js/jquery.weida.js", 1]
+  },
+  "建文工程项目管理系统": {
+    "icon": ["-1839654727 || 1977433282 || -1162834232", 0.4],
+    "body": ["/Login/QRLogin.ashx?method=MakeQRRecord", 0.6]
+  },
+  "英赛特互联网客户服务平台": {
+    "body": ["inc/js/pngfix.js", 0.8]
+  },
+  "朗速ERP": {
+    "body": ["/Resource/Scripts/Yw/Yw_Bootstrap.js", 0.8]
+  },
+  "美特CRM": {
+    "icon": ["-932760915 || 1898847852", 0.3],
+    "body": ["/images/login/metacrm6gb.gif", 0.7]
+  },
+  "安美数字酒店宽带运营系统": {
+    "icon": ["1259797304", 0.4],
+    "body": ["amttgroup.com", 0.6]
+  },
+  "Zyxel NAS": {
+    "icon": ["943925975", 0.5],
+    "body": ["/cmd,/ck6fup6/user_grp_cgi/cgi_modify_userinfo", 0.5]
+  },
+  "三汇SMG网关管理软件": {
+    "title": ["网关管理软件 || Gateway Management", 0.5],
+    "body": ["text ml10 mr20", 0.5]
+  },
+  "九思OA": {
+    "icon": ["1153943769", 0.3],
+    "body": ["/jsoa/webmail", 0.7]
+  },
+  "金慧综合管理信息系统": {
+    "body": ["/CommonWebResource/CoreLib/Combine/SimplePageInc.js && /Portal/LoginBegin.aspx", 0.9]
+  },
+  "赛普EAP企业适配管理平台": {
+    "body": ["IDWebSoft/", 0.7]
+  },
+  "易宝OA": {
+    "body": ["易宝OA系统", 0.7]
+  },
+  "快普M6": {
+    "body": ["Resource/JavaScript/jKPM6.DateTime.js", 0.9]
+  },
+  "积木报表": {
+    "icon": ["1380908726 || -719061418", 0.3],
+    "body": ["/jmreport/desreport_", 0.6]
+  },
+  "SwaggerUI": {
+    "body": ["SwaggerUIStandalonePreset", 0.8]
+  },
+  "RabbitMQ": {
+    "icon": ["1064742722", 0.6],
+    "title": ["RabbitMQ", 0.1],
+    "header": ["Server: Cowboy", 0.2],
+    "body": ["RabbitMQ", 0.1]
   }
 }
