@@ -1,23 +1,17 @@
 {
   "PHP": {
-    "header": ["x-powered-by: PHP || set-cookie: PHPSESSID", 0.7]
+    "header": ["x-powered-by: PHP || set-cookie: PHPSESSID"]
   },
   "Java": {
-    "header": ["x-powered-by: Java || set-cookie: JSESSIONID", 0.7]
+    "header": ["x-powered-by: Java || set-cookie: JSESSIONID"]
   },
   "Python": {
-    "header": ["server: Python", 0.7]
+    "header": ["server: Python"]
   },
   "ASP.NET": {
-    "header": ["x-powered-by: ASP.NET || x-aspnet-version: || set-cookie: ASPSESSIONID", 0.7]
+    "header": ["x-powered-by: ASP.NET || x-aspnet-version: || set-cookie: ASPSESSIONID"]
   },
   "Node.js": {
-    "header": ["x-powered-by: Express", 0.6]
-  },
-  "Spring": {
-    "header": ["x-application-context:", 0.8]
-  },
-  "JFinal": {
-    "header": ["server: JFinal", 0.8]
+    "header": ["x-powered-by: Express"]
   }
 }

@@ -18,7 +18,7 @@ Web asset discovery and reconnaissance tool with batch processing, screenshot, H
 - 🔄 **并发处理**：批量处理 URL，可配置并发数（默认：5，可调范围：5-100）
 - 📸 **网页截图**：支持截图和完整页面截图
 - 📊 **多格式报告**：自动生成 HTML 报告和 JSON 格式导出
-- 🎯 **指纹识别**：识别 Web 应用（17,000+ 指纹）、中间件和编程语言
+- 🎯 **指纹识别**：识别 Web 应用、中间件和编程语言
 
 ## 🎯 应用场景
 

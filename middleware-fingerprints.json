@@ -1,68 +1,68 @@
 {
+  "Apache Tomcat": {
+    "header": ["server: Apache-Coyote"]
+  },
   "Apache": {
-    "header": ["server: Apache",0.8]
+    "header": ["server: Apache"]
   },
   "Nginx": {
-    "header": ["server: Nginx",0.8]
+    "header": ["server: Nginx"]
   },
   "IIS": {
-    "header": ["server: Microsoft-IIS",0.8]
+    "header": ["server: Microsoft-IIS"]
   },
   "LiteSpeed": {
-    "header": ["server: litespeed",0.8]
-  },
-  "Apache Tomcat": {
-    "header": ["server: Apache-Coyote",0.9]
+    "header": ["server: litespeed"]
   },
   "Jetty": {
-    "header": ["server: Jetty",0.8]
+    "header": ["server: Jetty"]
   },
   "Weblogic": {
-    "body": ["Error 404--Not Found",0.8]
+    "body": ["Error 404--Not Found"]
   },
   "Resin": {
-    "header": ["server: Resin",0.8]
+    "header": ["server: Resin"]
   },
   "Cloudflare": {
-    "header": ["server: cloudflare",0.8]
+    "header": ["server: cloudflare"]
   },
   "Varnish": {
-    "header": ["server: Varnish",0.8]
+    "header": ["server: Varnish"]
   },
   "OpenResty": {
-    "header": ["server: openresty",0.8]
+    "header": ["server: openresty"]
   },
   "Tengine": {
-    "header": ["server: Tengine",0.8]
+    "header": ["server: Tengine"]
   },
   "Gunicorn": {
-    "header": ["gunicorn",0.8]
+    "header": ["gunicorn"]
   },
   "Passenger": {
-    "header": ["phusion_passenger",0.8]
+    "header": ["phusion_passenger"]
   },
   "Caddy": {
-    "title": ["Caddy",0.8]
+    "title": ["Caddy"]
   },
   "Plesk": {
-    "header": ["x-powered-by: Plesk",0.7]
+    "header": ["x-powered-by: Plesk"]
   },
   "JumpServer": {
-    "header": ["Server: Jump_server",0.7]
+    "header": ["Server: Jump_server"]
   },
   "OpenSSL": {
-    "header": ["server: OpenSSL",0.6]
+    "header": ["server: OpenSSL"]
   },
   "Mod_wsgi": {
-    "header": ["server: mod_wsgi",0.6]
+    "header": ["server: mod_wsgi"]
   },
   "Mod_fcgid": {
-    "header": ["server: mod_fcgid",0.6]
+    "header": ["server: mod_fcgid"]
   },
   "BWS": {
-    "header": ["server: bws",0.8]
+    "header": ["server: bws"]
   },
   "Zeus": {
-    "header": ["server: Zeus",0.8]
+    "header": ["server: Zeus"]
   }
 }

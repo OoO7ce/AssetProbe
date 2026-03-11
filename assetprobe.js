@@ -36,7 +36,7 @@ function showHelp() {
 ███  ███ ▄▄▄█▀ ▄▄▄█▀ ▀█▄▄▄  ██   ███       ██    ▀███▀ ████▀ ▀█▄▄▄
 \x1b[0m
   \x1b[32m+------------------------------------------------------------+\x1b[0m
-                        \x1b[33mAssetProbe\x1b[0m \x1b[36mv1.0.0\x1b[0m
+                        \x1b[33mAssetProbe\x1b[0m \x1b[36mv1.3.0\x1b[0m
                 \x1b[36m资产发现与侦察工具\x1b[0m - Asset Discovery Tool
   \x1b[32m+------------------------------------------------------------+\x1b[0m
 
@@ -58,7 +58,7 @@ function showHelp() {
                            示例: -s screenshot.png
                            示例: -s (自动命名)
   -f, --full               截取完整页面（包括滚动部分）
-  -j, --json               输出 JSON 到控制台（不保存）
+  -j, --json               输出纯 JSON 到控制台（无其他提示信息）
   -o, --output <文件>      保存 JSON 报告到文件
                            示例: -o results.json
   -h, --help               显示帮助信息
@@ -70,17 +70,14 @@ function showHelp() {
   # 使用代理访问
   assetprobe -u https://www.bilibili.com -p 127.0.0.1:7890
 
-  # 批量处理（默认并发数为5）
-  assetprobe -b urls.txt -p 127.0.0.1:7890
-
-  # 批量处理（增加并发数提高速度）
+  # 批量处理（默认并发数为5，增加并发数提高速度）
   assetprobe -b urls.txt -c 10
 
   # 批量处理并截图
   assetprobe -b urls.txt -s -c 5
 
   # 访问并截图（自动命名）
-  assetprobe -u https://www.bilibili.com -p 127.0.0.1:7890 -s
+  assetprobe -u https://www.example.com -s
 
   # 访问并截图（指定文件名）
   assetprobe -u https://www.bilibili.com -s bilibili.png
@@ -88,7 +85,7 @@ function showHelp() {
   # 截取完整页面
   assetprobe -u https://www.example.com -s -f
 
-  # 静默模式 + 截图
+  # 使用代理 + 截图
   assetprobe -u https://www.example.com -p 127.0.0.1:7890 -s
 
   # 输出 JSON 到控制台
@@ -110,6 +107,7 @@ function showHelp() {
   - 截图按域名/IP自动分类保存到 screenshots 文件夹
   - 默认超时时间: 60秒
   - 默认等待时间: 2秒
+  - 批量处理结果会显示：Web应用指纹、中间件、编程语言
 
 截图保存路径示例:
   screenshots/www_example_com/screenshot_2025-12-30T14-30-00.png
@@ -567,46 +565,46 @@ async function identifyWebApp(response, page, url, batchMode = false) {
   return sorted.slice(0, 3);
 }
 
-// Middleware 指纹识别
+// Middleware 指纹识别（按JSON顺序匹配，匹配成功立即返回）
 function identifyMiddleware(response) {
   if (!middlewareFingerprintsCache) {
     middlewareFingerprintsCache = loadMiddlewareFingerprints();
   }
   const fingerprints = middlewareFingerprintsCache;
-  const detected = [];
   const headerStr = getHeaderString(response).toLowerCase();
 
+  // 按JSON中的顺序遍历，找到第一个匹配的就返回
   for (const [appName, features] of Object.entries(fingerprints)) {
     if (features.header) {
       const headerValue = features.header[0];
       if (matchCondition(headerValue, headerStr, (v, c) => c.includes(v.toLowerCase()))) {
-        detected.push({ name: appName, confidence: features.header[1] });
+        return [appName];
       }
     }
   }
 
-  return detected.sort((a, b) => b.confidence - a.confidence).slice(0, 2);
+  return [];
 }
 
-// Language 指纹识别
+// Language 指纹识别（按JSON顺序匹配，匹配成功立即返回）
 function identifyLanguage(response) {
   if (!languageFingerprintsCache) {
     languageFingerprintsCache = loadLanguageFingerprints();
   }
   const fingerprints = languageFingerprintsCache;
-  const detected = [];
   const headerStr = getHeaderString(response).toLowerCase();
 
+  // 按JSON中的顺序遍历，找到第一个匹配的就返回
   for (const [appName, features] of Object.entries(fingerprints)) {
     if (features.header) {
       const headerValue = features.header[0];
       if (matchCondition(headerValue, headerStr, (v, c) => c.includes(v.toLowerCase()))) {
-        detected.push({ name: appName, confidence: features.header[1] });
+        return [appName];
       }
     }
   }
 
-  return detected.sort((a, b) => b.confidence - a.confidence).slice(0, 2);
+  return [];
 }
 
 // 并发控制处理URL列表
@@ -634,7 +632,7 @@ async function processUrlsConcurrently(urls, options) {
   // 记录开始时间
   const startTime = Date.now();
 
-  // 非 JSON 模式才输出开始信息
+  // 非 JSON 模式：显示头部
   if (!jsonOutput) {
     console.log(`[OK] 开始批量处理...\n`);
   }
@@ -670,41 +668,41 @@ async function processUrlsConcurrently(urls, options) {
         failCount++;
       }
 
-      // 非 JSON 模式下才输出进度信息
+      // 非 JSON 模式下输出结果
       if (!jsonOutput) {
-        // 立即输出结果，序号表示完成进度
         const prefix = `${colors.cyan}[${completedCount}/${urls.length}]${colors.reset} `;
         if (result.success) {
           const statusColor = getStatusColor(result.status);
           const coloredStatus = `${statusColor}${result.status}${colors.reset}`;
-          const shortTitle = result.title.length > 50 ? result.title.substring(0, 47) + '...' : result.title;
-          const shortUrl = task.url.length > 40 ? task.url.substring(0, 37) + '...' : task.url;
+          const shortTitle = (result.title || '').length > 50 ? result.title.substring(0, 47) + '...' : (result.title || '');
+          const shortUrl = task.url.length > 50 ? task.url.substring(0, 47) + '...' : task.url;
 
-          // 格式化 Web 应用显示（显示前3个）
           let webappsStr = '';
           if (result.webapps && result.webapps.length > 0) {
             const displayApps = result.webapps.slice(0, 3);
             webappsStr = ' - ' + displayApps.map(app => {
-              const percent = Math.round(app.confidence * 100);
-              return `${colors.green}${app.name} [${percent}%]${colors.reset}`;
+              const appPercent = Math.round(app.confidence * 100);
+              return `${colors.green}${app.name} [${appPercent}%]${colors.reset}`;
             }).join(' | ');
           }
 
-          console.log(`${prefix}${shortUrl} - ${coloredStatus} - ${shortTitle}${webappsStr}`);
+          // 中间件
+          let middlewareStr = '';
+          if (result.middleware && result.middleware.length > 0) {
+            middlewareStr = ` - ${colors.blue}中间件: ${result.middleware.join(' | ')}${colors.reset}`;
+          }
+
+          // 语言
+          let languagesStr = '';
+          if (result.languages && result.languages.length > 0) {
+            languagesStr = ` - ${colors.blue}语言: ${result.languages.join(' | ')}${colors.reset}`;
+          }
+
+          console.log(`${prefix}${shortUrl} - ${coloredStatus} - ${shortTitle}${webappsStr}${middlewareStr}${languagesStr}`);
         } else {
-          const shortUrl = task.url.length > 40 ? task.url.substring(0, 37) + '...' : task.url;
+          const shortUrl = task.url.length > 50 ? task.url.substring(0, 47) + '...' : task.url;
           console.log(`${prefix}${shortUrl} - ${colors.red}[FAIL]${colors.reset} ${result.errorCode || 'Error'}`);
         }
-      } else {
-        // JSON 模式：显示进度条到 stderr
-        const percent = ((completedCount / urls.length) * 100).toFixed(1);
-        const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
-        const barLength = 30;
-        const filled = Math.round((completedCount / urls.length) * barLength);
-        const bar = '█'.repeat(filled) + '░'.repeat(barLength - filled);
-
-        // 使用 \r 覆盖当前行
-        process.stderr.write(`\r${colors.cyan}[${completedCount}/${urls.length}]${colors.reset} ${bar} ${percent}% | ${colors.green}[OK]${successCount}${colors.reset} ${colors.red}[FAIL]${failCount}${colors.reset} | ${elapsed}s`);
       }
 
       return result;
@@ -718,11 +716,6 @@ async function processUrlsConcurrently(urls, options) {
 
   // 等待所有任务完成
   await Promise.all(processing);
-
-  // JSON 模式：进度条完成后输出换行
-  if (jsonOutput) {
-    process.stderr.write('\n');
-  }
 
   // 计算总耗时
   const endTime = Date.now();
@@ -1794,20 +1787,14 @@ function generateJSONReport(results, batchDir, totalCount, totalTime) {
 
         // 中间件识别结果
         if (result.middleware && result.middleware.length > 0) {
-          item.middleware = result.middleware.map(app => ({
-            name: app.name,
-            confidence: Math.round(app.confidence * 100) + '%'
-          }));
+          item.middleware = result.middleware;
         } else {
           item.middleware = [];
         }
 
         // 语言识别结果
         if (result.languages && result.languages.length > 0) {
-          item.languages = result.languages.map(app => ({
-            name: app.name,
-            confidence: Math.round(app.confidence * 100) + '%'
-          }));
+          item.languages = result.languages;
         } else {
           item.languages = [];
         }
@@ -1861,7 +1848,6 @@ async function processUrl(url, options) {
         console.log(`[PIC] 完整页面截图`);
       }
     }
-    console.log('');
   }
 
   // 启动浏览器
@@ -1902,8 +1888,8 @@ async function processUrl(url, options) {
   });
 
   try {
-    if (!batchMode) {
-      console.log('[LOADING] 正在加载页面...\n');
+    if (!batchMode && !jsonMode) {
+      console.log('[LOADING] 正在加载页面...');
     }
 
     // 发起页面请求并获取响应
@@ -1972,18 +1958,12 @@ async function processUrl(url, options) {
 
     // Middleware
     if (middleware.length > 0) {
-      const middlewareStr = middleware.map(app => {
-        const percent = Math.round(app.confidence * 100);
-        return `${app.name} [${percent}%]`;}).join(' | ');
-      console.log(`中间件: ${middlewareStr}`);
+      console.log(`中间件: ${middleware.join(' | ')}`);
     }
 
     // Language
     if (languages.length > 0) {
-      const languagesStr = languages.map(app => {
-        const percent = Math.round(app.confidence * 100);
-        return `${app.name} [${percent}%]`;}).join(' | ');
-      console.log(`语言: ${languagesStr}`);
+      console.log(`语言: ${languages.join(' | ')}`);
     }
     console.log('');
 
@@ -2065,13 +2045,6 @@ async function processUrl(url, options) {
         console.log(`[PIC] 启用截图`);
       }
       console.log(`[CONC] 并发数: ${args.concurrency}`);
-      console.log('');
-    } else {
-      // JSON 模式：输出开始信息到 stderr
-      console.error(`\n${colors.cyan}[BATCH] 开始批量处理${colors.reset}`);
-      console.error(`[URL] URL数量: ${colors.green}${urls.length}${colors.reset}`);
-      console.error(`[CONC] 并发数: ${args.concurrency}`);
-      console.error('');
     }
 
     // 并发处理所有URL
@@ -2098,7 +2071,6 @@ async function processUrl(url, options) {
           fs.mkdirSync(jsonDir, { recursive: true });
         }
         fs.writeFileSync(jsonPath, jsonReport, 'utf-8');
-        console.error(`\n[PIC] JSON报告已保存: ${jsonPath}`);
       }
 
       return;
@@ -2113,7 +2085,6 @@ async function processUrl(url, options) {
         fs.mkdirSync(jsonDir, { recursive: true });
       }
       fs.writeFileSync(jsonPath, jsonReport, 'utf-8');
-      console.error(`[PIC] JSON报告已保存: ${jsonPath}`);
     }
 
     // 非 JSON 模式：正常输出结果（移除统计头部，直接输出结果）
@@ -2180,13 +2151,6 @@ async function processUrl(url, options) {
         fs.mkdirSync(jsonDir, { recursive: true });
       }
       fs.writeFileSync(jsonPath, jsonReport, 'utf-8');
-      if (result.success) {
-        console.error(`\n${colors.green}[OK] 成功${colors.reset} - ${colors.cyan}${result.title || 'N/A'}${colors.reset}`);
-        console.error(`[PIC] JSON报告已保存: ${jsonPath}`);
-      } else {
-        console.error(`\n${colors.red}[FAIL] 失败${colors.reset} - ${result.errorCode || 'Error'}`);
-        console.error(`[PIC] JSON报告已保存: ${jsonPath}`);
-      }
     }
     return;
   }

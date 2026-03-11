@@ -16,7 +16,7 @@ Web asset discovery and reconnaissance tool with batch processing, screenshot, H
 - 🔄 **Concurrent Processing**: Batch process URLs with configurable concurrency (default: 5, range: 5-100)
 - 📸 **Screenshot**: Capture screenshots or full-page screenshots
 - 📊 **Multi-format Reports**: Auto-generated HTML reports and JSON exports
-- 🎯 **Fingerprint Recognition**: Identify web apps (17,000+ fingerprints), middleware, and programming languages
+- 🎯 **Fingerprint Recognition**: Identify web apps, middleware, and programming languages
 
 ## Use Cases
 
