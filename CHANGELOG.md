@@ -1,3 +1,17 @@
+## [1.3.0](https://github.com/OoO7ce/AssetProbe/compare/v1.2.0...v1.3.0) (2026-03-11)
+
+### ✨ Features
+
+* update fingerprints and CLI improvements ([67dd719](https://github.com/OoO7ce/AssetProbe/commit/67dd719913cc37d131ecc791bab953c80c44910b))
+
+### 🐛 Bug Fixes
+
+* use breaking:true for major version detection [skip ci] ([6a697e2](https://github.com/OoO7ce/AssetProbe/commit/6a697e29075fcdbc1cf4b194d9c4f34446b2f033))
+
+### 📝 Documentation
+
+* update README with feature details and JSON output format [skip ci] ([51b37cc](https://github.com/OoO7ce/AssetProbe/commit/51b37cc9a44eeb931ec3c870689983e44bebd179))
+
 ## [1.2.0](https://github.com/OoO7ce/AssetProbe/compare/v1.1.0...v1.2.0) (2026-02-28)
 
 ### ⚠ BREAKING CHANGES
