@@ -1,6 +1,6 @@
 {
   "name": "assetprobe",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Web asset discovery and reconnaissance tool with batch processing, screenshot, and HTML report generation",
   "main": "assetprobe.js",
   "bin": {

@@ -1,3 +1,13 @@
+## [1.4.0](https://github.com/m0b1u3/AssetProbe/compare/v1.3.0...v1.4.0) (2026-04-23)
+
+### ✨ Features
+
+* improve HTML report UI and project metadata ([3470d2d](https://github.com/m0b1u3/AssetProbe/commit/3470d2dd3e761d36b6125972b367b2d4ab2a5940))
+
+### 🔧 Maintenance
+
+* update fingerprints [skip ci] ([7d2e3a2](https://github.com/m0b1u3/AssetProbe/commit/7d2e3a294e0ae44202e50e2e20cb6527fca100a7))
+
 ## [1.3.0](https://github.com/m0b1u3/AssetProbe/compare/v1.2.0...v1.3.0) (2026-03-11)
 
 ### ✨ Features
