@@ -8,9 +8,9 @@
 [![License](https://img.shields.io/npm/l/assetprobe)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/m0b1u3/AssetProbe?style=social)](https://github.com/m0b1u3/AssetProbe)
 
-Web asset discovery and reconnaissance tool with batch processing, screenshot, HTML report generation, and web application fingerprinting.
-
 资产发现与侦察工具，支持批量处理、网页截图、HTML 报告生成和 Web 应用指纹识别。
+
+![assetprobe](.github/assets/banner_cn.png)
 
 ## ✨ 主要功能
 

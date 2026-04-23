@@ -10,6 +10,8 @@
 
 Web asset discovery and reconnaissance tool with batch processing, screenshot, HTML report generation, and web application fingerprinting.
 
+![assetprobe](.github/assets/banner.png)
+
 ## Features
 
 - 🌐 **Dynamic Rendering**: Powered by Playwright, renders JavaScript-heavy sites (SPA, React, Vue, Angular)
