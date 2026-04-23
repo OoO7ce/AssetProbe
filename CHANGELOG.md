@@ -1,3 +1,9 @@
+## [1.4.1](https://github.com/m0b1u3/AssetProbe/compare/v1.4.0...v1.4.1) (2026-04-23)
+
+### 📝 Documentation
+
+* add README banner assets ([93fa8a6](https://github.com/m0b1u3/AssetProbe/commit/93fa8a6cd98ea74bfcfa68190adcf2d3790d3c37))
+
 ## [1.4.0](https://github.com/m0b1u3/AssetProbe/compare/v1.3.0...v1.4.0) (2026-04-23)
 
 ### ✨ Features
