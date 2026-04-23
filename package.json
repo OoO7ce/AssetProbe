@@ -21,7 +21,7 @@
     "screenshot",
     "batch-processing"
   ],
-  "author": "Ark",
+  "author": "m0b1u3",
   "license": "ISC",
   "files": [
     "assetprobe.js",
@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OoO7ce/AssetProbe.git"
+    "url": "git+https://github.com/m0b1u3/AssetProbe.git"
   },
   "dependencies": {
     "playwright": "~1.57.0"

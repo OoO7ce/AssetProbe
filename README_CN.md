@@ -6,7 +6,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/assetprobe)](https://www.npmjs.com/package/assetprobe)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
 [![License](https://img.shields.io/npm/l/assetprobe)](LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/OoO7ce/AssetProbe?style=social)](https://github.com/OoO7ce/AssetProbe)
+[![GitHub stars](https://img.shields.io/github/stars/m0b1u3/AssetProbe?style=social)](https://github.com/m0b1u3/AssetProbe)
 
 Web asset discovery and reconnaissance tool with batch processing, screenshot, HTML report generation, and web application fingerprinting.
 
@@ -71,7 +71,7 @@ assetprobe -b urls.txt -c 10
 
 ```bash
 # 克隆项目
-git clone https://github.com/OoO7ce/AssetProbe.git
+git clone https://github.com/m0b1u3/AssetProbe.git
 cd AssetProbe
 
 # 安装依赖（会自动下载 Chromium 浏览器）
@@ -302,7 +302,7 @@ assetprobe/
 
 ## 👤 作者
 
-Ark
+m0b1u3
 
 ## 🤝 贡献
 
@@ -330,4 +330,4 @@ Ark
 
 ---
 
-**Made with ❤️ by Ark**
+**Made with ❤️ by m0b1u3**

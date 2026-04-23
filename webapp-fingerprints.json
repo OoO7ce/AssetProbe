@@ -12,12 +12,6 @@
     "360-Webguard": {
       "header":["wzws-ray: ",0.8]
     },
-    "WebGuard": {
-      "body":["onload=\"getinfo()\" onresize=\"fit_center()\">",0.8]
-    },
-    "网神防火墙": {
-      "body":["3600防火墙 && 网神SecGate",0.8]
-    },
     "360-TianQing": {
       "body":["已过期或者未授权，购买请联系4008-136-360",0.8]
     },
@@ -36,13 +30,13 @@
       "header":["server: huawei auth-http server",0.8]
     },
     "HuaWei-Router": {
-      "body":["huawei technologies",0.8],
-      "header":["httpwarnflg",0.8]
+      "body":["huawei technologies",0.5],
+      "header":["httpwarnflg",0.5]
     },
     "HuaWei-Home-Gateway": {
-      "body":["' + gvartitle + ' && document.write(\"<title>\" + gvarlogin + \"</title>\"",0.8],
-      "header":["sessionid_r3",0.8],
-      "title":[" home gateway",0.8]
+      "body":["' + gvartitle + ' && document.write(\"<title>\" + gvarlogin + \"</title>\"",0.4],
+      "header":["sessionid_r3",0.3],
+      "title":[" home gateway",0.3]
     },
     "HuaWei-ASG2100": {
       "header":["huawei asg2050",0.8]
@@ -60,20 +54,20 @@
       "header":["smartax",0.8]
     },
     "Huawei-Switch": {
-      "body":["/simple/view/main/modifypwd.html",0.8],
-      "title":["wlan web登录",0.8],
-      "header":["server: quidway && /view/login.html",0.8]
+      "body":["/simple/view/main/modifypwd.html",0.4],
+      "title":["wlan web登录",0.3],
+      "header":["server: quidway && /view/login.html",0.3]
     },
     "Huawei-Firewall": {
-      "body":["modify by wangxiangguang",0.8],
-      "header":["server: eudemon server",0.8]
+      "body":["modify by wangxiangguang",0.5],
+      "header":["server: eudemon server",0.5]
     },
     "HuaWei-Company's-product": {
       "body":["copyright &copy; huawei technologies co.",0.8]
     },
     "HuaWei-Server": {
-      "body":["control/images/about.gif && src=\"custom/logo.gif\"",0.8],
-      "header":["server: huawei-bmc",0.8]
+      "body":["control/images/about.gif && src=\"custom/logo.gif\"",0.5],
+      "header":["server: huawei-bmc",0.5]
     },
     "HuaWei-ISM": {
       "body":["//begin h90005710  redirect http to https",0.8]
@@ -91,20 +85,20 @@
       "header":["server: s5728c ",0.8]
     },
     "HuaWei-VCT": {
-      "header":["tsp_http_server/2.1.3 vct web",0.8],
-      "body":["<frame name=\"hidden_frame\" id=\"hidden_frame\" src=\"hidden_frame.html\" noresize=\"noresize",0.8],
-      "title":["huawei inner web",0.8]
+      "header":["tsp_http_server/2.1.3 vct web",0.4],
+      "body":["<frame name=\"hidden_frame\" id=\"hidden_frame\" src=\"hidden_frame.html\" noresize=\"noresize",0.3],
+      "title":["huawei inner web",0.3]
     },
     "HuaWei-VPP-EWS": {
       "header":["server: huawei vpp ews",0.8]
     },
     "HuaWei-eSpace-IAD": {
-      "title":["index_title",0.8],
-      "body":["<span id='lang' value='huawei_announce'></span>",0.8]
+      "title":["index_title",0.5],
+      "body":["<span id='lang' value='huawei_announce'></span>",0.5]
     },
     "HuaWei-Video-Device": {
-      "header":["host: huaweivp",0.8],
-      "body":["<html><body><script language=javascript>window.open('/cn/login.htm','_top', null, true);</script></body></html>",0.8]
+      "header":["host: huaweivp",0.5],
+      "body":["<html><body><script language=javascript>window.open('/cn/login.htm','_top', null, true);</script></body></html>",0.5]
     },
     "HuaWei-iBMC": {
       "body":["/bmc/resources/css/cmn.css",0.8]
@@ -119,8 +113,8 @@
       "header":["huawei usg6620",0.8]
     },
     "HuaWei-eSight": {
-      "header":["sso/login.action",0.8],
-      "body":["esight_login_copy_right_font",0.8]
+      "header":["sso/login.action",0.5],
+      "body":["esight_login_copy_right_font",0.5]
     },
     "HuaWei-Enterprise-proxy-server": {
       "body":["<form name=\"frmlogon\" id=\"frmlogon\" method=\"post\"  action=\"/operatorlogin\" onsubmit=\"return check()\"> && huawei technologies co., ltd.",0.8]
@@ -225,15 +219,15 @@
       "body":["type=application/x-xtx-axhost && id=mtokenplugin width=0 height=0 style=\"position: absolute;left: 0px; top: 0px\"",0.8]
     },
     "HuaWei-VPN": {
-      "header":["auth-http server",0.8],
-      "body":["oncompleted(hresult,perrorobject, pasynccontext)",0.8]
+      "header":["auth-http server",0.5],
+      "body":["oncompleted(hresult,perrorobject, pasynccontext)",0.5]
     },
     "HUAWEI-AP5030DN": {
       "body":["<span class=\"medium\" >本设备支持fat模式（fat模式下可单独工作）",0.8]
     },
     "HUAWEI-FusionCompute": {
-      "header":["/omsportal/",0.8],
-      "body":["/omsportal/",0.8]
+      "header":["/omsportal/",0.5],
+      "body":["/omsportal/",0.5]
     },
     "HUAWEI-EchoLife-HG850a": {
       "body":["hg850a && onkeydown='return onhandlekeydown(event)",0.8]
@@ -272,8 +266,8 @@
       "body":["ui_component/css/xtheme-black.css",0.8]
     },
     "HuaWei-Video-Conferencing": {
-      "body":["window.location.replacepathname + \"login.html\";",0.8],
-      "title":["mcu v100r005",0.8]
+      "body":["window.location.replacepathname + \"login.html\";",0.5],
+      "title":["mcu v100r005",0.5]
     },
     "HUAWEI-Wireless-LAN": {
       "body":["cloud access point",0.8]
@@ -312,8 +306,8 @@
       "body":["class=\"hmm_login_box_list",0.8]
     },
     "HuaWei-Camera": {
-      "header":["server: webserver",0.8],
-      "body":["action=\"/goform/web_usrloginproc",0.8]
+      "header":["server: webserver",0.5],
+      "body":["action=\"/goform/web_usrloginproc",0.5]
     },
     "HuaWei-anyoffice": {
       "body":["src=\"assets/conn-service/admin/",0.8]
@@ -324,9 +318,9 @@
       "body":["/+CSCOE+/logon.html",0.8]
     },
     "Cisco-VPN": {
-      "header":["basic realm=\"vpn8\"",0.8],
-      "body":["cisco",0.8],
-      "title":["''+ sitetitle + \"",0.8]
+      "header":["basic realm=\"vpn8\"",0.4],
+      "body":["cisco",0.3],
+      "title":["''+ sitetitle + \"",0.3]
     },
     "Cisco-IOS": {
       "header":["server: cisco-ios",0.8]
@@ -350,8 +344,8 @@
       "header":["cisco ironport",0.8]
     },
     "Cisco-DLT": {
-      "body":["system name: cisco dlt",0.8],
-      "header":["cisco-dlt",0.8]
+      "body":["system name: cisco dlt",0.5],
+      "header":["cisco-dlt",0.5]
     },
     "Cisco-xSeries": {
       "header":["cisco xseries",0.8]
@@ -372,8 +366,8 @@
       "header":["cisco acceleration",0.8]
     },
     "Cisco-ACE": {
-      "header":["ace xml gateway",0.8],
-      "body":["<link href=\"/utility/cuesStylesLogo.css\" rel=\"stylesheet\" type=\"text/css\" />",0.8]
+      "header":["ace xml gateway",0.5],
+      "body":["<link href=\"/utility/cuesStylesLogo.css\" rel=\"stylesheet\" type=\"text/css\" />",0.5]
     },
     "Cisco-VOS": {
       "header":["cisco-vos",0.8]
@@ -385,8 +379,8 @@
       "header":["cisco-wsa",0.8]
     },
     "Cisco-UCC": {
-      "header":["cisco",0.8],
-      "body":["cisco unified contact center",0.8]
+      "header":["cisco",0.5],
+      "body":["cisco unified contact center",0.5]
     },
     "Cisco-MWEB": {
       "header":["cisco-mweb",0.8]
@@ -407,8 +401,8 @@
       "header":["proxy-agent: cscssm",0.8]
     },
     "Cisco-switch": {
-      "header":["realm=\"cisco css",0.8],
-      "body":["id=\"lbldevname\" class=\"titleciscolog",0.8]
+      "header":["realm=\"cisco css",0.5],
+      "body":["id=\"lbldevname\" class=\"titleciscolog",0.5]
     },
     "Cisco-Unified-IP-Phone": {
       "body":["cisco unified ip phone && /cgi/java/serviceability?adapter=device.statistics.device",0.8]
@@ -420,8 +414,8 @@
       "body":["href=\"management/setup.cgi?next_file=lan.htm",0.8]
     },
     "Linksys-Print-Server": {
-      "body":["print server for usb with 4-port switch",0.8],
-      "header":["print_server web",0.8]
+      "body":["print server for usb with 4-port switch",0.5],
+      "header":["print_server web",0.5]
     },
     "Cisco-Company's-product": {
       "body":["cisco systems, inc. all rights reserved",0.8]
@@ -430,9 +424,9 @@
       "body":["/servlet/owslhtml/owslicons/header_pewg.jpg",0.8]
     },
     "Cisco-Router": {
-      "body":["src=\"/images/login_progress.gif",0.8],
-      "title":["router",0.8],
-      "header":["level_1_or_view_access",0.8]
+      "body":["src=\"/images/login_progress.gif",0.4],
+      "title":["router",0.3],
+      "header":["level_1_or_view_access",0.3]
     },
     "Cisco-UCS-KVM": {
       "body":["/kvm_styles.css",0.8]
@@ -477,8 +471,8 @@
       "body":["<h2>accessing cisco ws-c3750g",0.8]
     },
     "LINKSYS-E1200": {
-      "header":["linksys e1200",0.8],
-      "body":["linksys e1200 && var mmc = {",0.8]
+      "header":["linksys e1200",0.5],
+      "body":["linksys e1200 && var mmc = {",0.5]
     },
     "OSS": {
       "body":["src=\"/uf/login/login.jsp\" >",0.8]
@@ -588,54 +582,23 @@
     "Tandberg": {
       "icon":["97604680",0.8]
     },
-    "Cisco-UCM": {
-      "body":["/ccmadmin/",0.8]
-    },
     "Cisco-Video-conferencing": {
       "body":["<frame src=\"framemiddle.htm\" name=\"no name\" noresize marginheight=\"0\">",0.8]
     },
     "Cisco-Prime-Infrastructure": {
-      "header":["server: prime",0.8],
-      "body":["webacs/welcomeaction.do",0.8]
+      "header":["server: prime",0.5],
+      "body":["webacs/welcomeaction.do",0.5]
     },
     "Cisco-VPN-3000-Concentrator": {
       "body":["<title>Cisco Systems, Inc. VPN 3000 Concentrator",0.8]
     }
   },
   "Apache": {
-    "Shiro": {
-      "header":["rememberme=deleteme",0.8],
-      "body":["</i> shiro</li>",0.2]
-    },
-    "apacheSolr": {
-      "body":["SolrCore Initialization Failures && Solr Admin",0.8]
-    },
-    "DBShop": {
-      "body":["content=\"dbshop",0.8]
-    },
-    "TPSHOP": {
-      "body":[">tpshop开源商城<",0.8]
-    },
-    "Solr": {
-      "body":["app_config.solr_path",0.8]
-    },
     "Hadoop-Administration": {
       "body":["class=\"navbar-brand\">hadoop</div>",0.8]
     },
-    "WebAsyst-Shop-Script": {
-      "body":["powered by webasyst shop-script <a href=\"http://www.shop-script.com/\" style=\"font-weight: normal\">shopping cart software</a>",0.8]
-    },
-    "Helix-Rtsp": {
-      "header":["server: helix server",0.8]
-    },
-    "GROWFORCE-Email": {
-      "body":["href=\"/page/help/mailconfig/config/index.html",0.8]
-    },
     "APACHE-Airflow": {
       "body":["<span>airflow</span> && src=\"/static/pin_100.png\"",0.8]
-    },
-    "NIUSHOP-Shop": {
-      "body":["template/shop/blue",0.8]
     },
     "APACHE-hadoop-YARN": {
       "body":["yarn.dt.plugins.js",0.8]
@@ -646,34 +609,15 @@
     "Sparkhistory-server": {
       "body":["src=\"/static/historypage-common.js\">",0.8]
     },
-    "APACHE-Oozie-Web-Console": {
-      "body":["href=\"/oozie\">oozie console",0.8]
-    },
-    "NexG-VForce": {
-      "body":["var lurl = \"vos.shtml\"",0.8]
-    },
-    "UniFi-swich": {
-      "body":["window.unificonfig.version",0.8],
-      "title":["unifi network",0.8]
-    },
     "APACHE-kylin": {
       "body":["to you under the apache license && href=\"/kylin/\"",0.8]
     },
     "APACHE-Guacamole": {
       "body":["scripts/guac-ui.js && guacamole - clientless remote desktop",0.8]
     },
-    "HOPERUN-HR": {
-      "body":["<title>考核评测系统</title> && src=./static/js/manifest",0.8]
-    },
     "APACHE-Unomi": {
-      "body":["logo apache unomi",0.8],
-      "title":["apache unomi welcome page",0.8]
-    },
-    "Apahce-Airflow": {
-      "body":["src=\"/static/pin_100.png\"",0.8]
-    },
-    "Apahce-hadoop-YARN": {
-      "body":["yarn.dt.plugins.js",0.8]
+      "body":["logo apache unomi",0.5],
+      "title":["apache unomi welcome page",0.5]
     },
     "Apahce-Kylin": {
       "body":["href=\"/kylin/\"",0.8]
@@ -681,47 +625,8 @@
     "Apahce-Oozie-Web-Console": {
       "body":["oozie-console",0.8]
     },
-    "Crow-Force-portal-CMS": {
-      "body":["中企动力提供技术支持",0.8]
-    },
-    "Palladium-Unified-security-management-and-comprehensive-audit-system": {
-      "body":["module/image/pldsec.css",0.8]
-    },
-    "sX-Shop": {
-      "body":["alert\"ihr suchbegriff muss mind. aus 3 zeichen bestehen.\";",0.8]
-    },
-    "unifi-Camera": {
-      "body":["css/ubnt-icon",0.8]
-    },
-    "yonyou-Shop": {
-      "body":["/shophome/ajaxgetcompetemessagelist.action",0.8]
-    },
     "Apahce-Dubbo": {
       "header":["basic realm=\"dubbo\"",0.8]
-    },
-    "LandShop": {
-      "body":["<div class=\"more CAT\" style=\"height:20px;margin:5px 0px 10px 0px;text-align:right\"><a class=\"item fat\"  href=\"ls.php?",0.8]
-    },
-    "SearchFitShoppingCart": {
-      "body":["This Website is generated by SearchFit Shopping Cart",0.8]
-    },
-    "System-Shop": {
-      "body":["powered by System4you.com internet solutions",0.8]
-    },
-    "BestShopPro": {
-      "body":["<td width=300 height=18 colspan=2 align=center class=tdn><b>Logowanie</b></td></tr>",0.8]
-    },
-    "CactuShop": {
-      "body":["<select name=\"numCurrencyID\" class=\"currencymenu\" onchange=\"javascript:document.getElementById('currmenuform').submit();\">",0.8]
-    },
-    "ORCA-Platform": {
-      "body":["<meta name=\"author\" content=\"ORCA Websites\"/>",0.8]
-    },
-    "ICEshop": {
-      "body":["<p id=\"power_by\"><a href=\"http://www.iceshop.nl\" target=\"_blank\">Powered by ICEshop</a></p>",0.8]
-    },
-    "RedShop": {
-      "body":["Powered by:<a href=\"http://www.rednetcms.com/redshop\" target=\"_blank\">Redshop</a>",0.8]
     },
     "apache-cocoon": {
       "header":["X-Cocoon-Version: *",0.8]
@@ -766,15 +671,15 @@
       "body":["href=\"/jobs/job?id=",0.8]
     },
     "Struts2": {
-      "header":["jboss",0.8],
-      "body":["there is no action mapped for namespace",0.8]
+      "header":["jboss",0.5],
+      "body":["there is no action mapped for namespace",0.5]
     },
     "Mathopd": {
       "header":["server: mathopd",0.8]
     },
     "Kafka-Manager": {
-      "body":["vassets/images/2af62f58ee2baf495c9b3a9a1c30ce03-favicon.png",0.8],
-      "header":["kafka admin",0.8]
+      "body":["vassets/images/2af62f58ee2baf495c9b3a9a1c30ce03-favicon.png",0.5],
+      "header":["kafka admin",0.5]
     },
     "KafkaOffsetMonitor": {
       "body":["css/cluster-viz.css",0.8]
@@ -785,8 +690,8 @@
       "header":["netgear  wnr612v3",0.8]
     },
     "NETGEAR-WNR2000v5": {
-      "body":["class=\"router_name_div\">wnr2000v5</div>",0.8],
-      "header":["netgear wnr2000v5",0.8]
+      "body":["class=\"router_name_div\">wnr2000v5</div>",0.5],
+      "header":["netgear wnr2000v5",0.5]
     },
     "NETGEAR-WNR2000": {
       "header":["netgear wnr2000",0.8]
@@ -795,22 +700,22 @@
       "header":["netgear wndr3300",0.8]
     },
     "NETGEAR-JWNR2000v5": {
-      "body":["var model=\"jwnr2000v5\"",0.8],
-      "header":["netgear jwnr2000v5",0.8]
+      "body":["var model=\"jwnr2000v5\"",0.5],
+      "header":["netgear jwnr2000v5",0.5]
     },
     "NETGEAR-JNR1010": {
       "header":["netgear  jnr1010",0.8]
     },
     "NETGEAR-DGND3700": {
-      "body":["content=\"dgnd3700",0.8],
-      "header":["netgear dgnd3700",0.8]
+      "body":["content=\"dgnd3700",0.5],
+      "header":["netgear dgnd3700",0.5]
     },
     "NETGEAR-DGN2000": {
       "header":["netgear dgn2000 ",0.8]
     },
     "NETGEAR-R6400": {
-      "body":["content=\"r6400\"",0.8],
-      "header":["netgear r6400",0.8]
+      "body":["content=\"r6400\"",0.5],
+      "header":["netgear r6400",0.5]
     },
     "NETGEAR-R8000": {
       "header":["netgear r8000",0.8]
@@ -819,27 +724,27 @@
       "header":["netgear",0.8]
     },
     "NETGEAR-R8000P": {
-      "body":["content=\"r8000p",0.8],
-      "header":["realm=\"netgear r8000p",0.8]
+      "body":["content=\"r8000p",0.5],
+      "header":["realm=\"netgear r8000p",0.5]
     },
     "NETGEAR-R7000": {
-      "body":["content=\"r7000\"",0.8],
-      "header":["netgearr7000",0.8]
+      "body":["content=\"r7000\"",0.5],
+      "header":["netgearr7000",0.5]
     },
     "Netgear-ReadyNAS": {
       "header":["realm=\"readynas admin",0.8]
     },
     "NETGEAR-R6020": {
-      "body":["content=\"r6020\"",0.8],
-      "header":["realm=\"netgear r6020",0.8]
+      "body":["content=\"r6020\"",0.5],
+      "header":["realm=\"netgear r6020",0.5]
     },
     "NETGEAR-R6080": {
-      "body":["content=\"r6080\"",0.8],
-      "header":["realm=\"netgear r6080",0.8]
+      "body":["content=\"r6080\"",0.5],
+      "header":["realm=\"netgear r6080",0.5]
     },
     "NETGEAR-XR500": {
-      "body":["var host_name = \"xr500\"",0.8],
-      "header":["realm=\"netgear xr500",0.8]
+      "body":["var host_name = \"xr500\"",0.5],
+      "header":["realm=\"netgear xr500",0.5]
     },
     "Netgear-NAS": {
       "header":["100nas && netgear",0.8]
@@ -866,8 +771,8 @@
       "body":["class=\"gs108timage spacer50percent topalign righthalign\"",0.8]
     },
     "NETGEAR-FVS318": {
-      "body":["top.html",0.8],
-      "header":["server: netgear",0.8]
+      "body":["top.html",0.5],
+      "header":["server: netgear",0.5]
     },
     "NETGEAR-ProSafe-VPN-Firewall-FVS336GV3": {
       "body":["gigabit dual wan ssl vpn firewall fvs336gv3</div>",0.8]
@@ -915,8 +820,8 @@
       "header":["netgear xwn5001",0.8]
     },
     "NETGEAR-WNR2020": {
-      "body":["var model=\"wnr2020\"",0.8],
-      "header":["netgear wnr2020",0.8]
+      "body":["var model=\"wnr2020\"",0.5],
+      "header":["netgear wnr2020",0.5]
     },
     "NETGEAR-WNDR3400v2": {
       "header":["netgear wndr3400v2",0.8]
@@ -934,8 +839,8 @@
       "header":["netgear r6220",0.8]
     },
     "NETGEAR-WNDR3400v3": {
-      "body":["netgear wndr3400v3&nbsp; && var mmc = {",0.8],
-      "header":["netgear wndr3400v3",0.8]
+      "body":["netgear wndr3400v3&nbsp; && var mmc = {",0.5],
+      "header":["netgear wndr3400v3",0.5]
     },
     "NETGEAR-GS748T": {
       "body":["gs748timage spacer50percent topalign righthalign",0.8]
@@ -978,14 +883,10 @@
     "H3C-ER5200": {
       "header":["h3c er5200",0.8]
     },
-    "H3C-Company's-product": {
-      "header":["server: {\"length\": 0, \"chained_to\": 1919250030, \"identifier\": \"0\", \"str\": null}",0.8],
-      "body":["icg_helpscript.js",0.8]
-    },
     "H3C-Switch": {
-      "body":["<h2>web网管中 && window.location = \"/web/device/login?lang=\"+slang;",0.8],
-      "title":["web user login",0.8],
-      "header":["server: switch",0.8]
+      "body":["<h2>web网管中 && window.location = \"/web/device/login?lang=\"+slang;",0.4],
+      "title":["web user login",0.3],
+      "header":["server: switch",0.3]
     },
     "H3C-ICG1800": {
       "header":["realm=\"h3c icg1800",0.8]
@@ -1000,8 +901,8 @@
       "header":["huawei-3com wbr-204g",0.8]
     },
     "H3C-CAS": {
-      "title":["cas",0.8],
-      "body":["<iframe src=\"javascript:''\" id=\"__gwt_historyframe\" tabindex='-1' style=\"position:absolute;width:0;height:0;border:0\"></iframe>",0.8]
+      "title":["cas",0.5],
+      "body":["<iframe src=\"javascript:''\" id=\"__gwt_historyframe\" tabindex='-1' style=\"position:absolute;width:0;height:0;border:0\"></iframe>",0.5]
     },
     "H3C-Firewall": {
       "body":["/php/common/checknum_creat.php?module=config_authnum && class=\"dl_margin0\" align=\"left\">web网管用户登录</div>",0.8]
@@ -1016,8 +917,8 @@
       "header":["basic realm=\"h3c br104h\"",0.8]
     },
     "H3C-S1626": {
-      "body":["var devicename =  \"h3c s1626\"",0.8],
-      "header":["basic realm=\"h3c s1626\"",0.8]
+      "body":["var devicename =  \"h3c s1626\"",0.5],
+      "header":["basic realm=\"h3c s1626\"",0.5]
     },
     "H3C-WBR204n": {
       "header":["basic realm=\"h3c wbr204n\"",0.8]
@@ -1029,16 +930,16 @@
       "header":["basic realm=\"h3c sr6608\"",0.8]
     },
     "H3C-HDM": {
-      "header":["server: h3c-hdm",0.8],
-      "body":["<iframe frameborder=\"0\" class=\"framelayout\" src=\"./page/blank.html\" name=\"mainframe\" id=\"mainframe && /video_record.jnlp",0.8]
+      "header":["server: h3c-hdm",0.5],
+      "body":["<iframe frameborder=\"0\" class=\"framelayout\" src=\"./page/blank.html\" name=\"mainframe\" id=\"mainframe && /video_record.jnlp",0.5]
     },
     "H3C-NER324": {
-      "body":["generator",0.8],
-      "title":["ner324系统管理",0.8]
+      "body":["generator",0.5],
+      "title":["ner324系统管理",0.5]
     },
     "H3C-ER2200G2": {
-      "body":["\"=aaaaaaaa",0.8],
-      "title":["er2200g2系统管理",0.8]
+      "body":["\"=aaaaaaaa",0.5],
+      "title":["er2200g2系统管理",0.5]
     },
     "h3c-Cloud": {
       "body":["vstor && 分布式存储管理系统 </p>",0.8]
@@ -1072,9 +973,6 @@
     },
     "h3cer3200": {
       "body":["ER3200 && h3c.com && home.asp",0.8]
-    },
-    "CX": {
-      "icon":["-532394952",0.8]
     },
     "H3C-ICG1000": {
       "header":["h3c icg 1000",0.8]
@@ -1115,12 +1013,12 @@
       "body":["main.htm && webchat.ruijie.com.cn",0.8]
     },
     "Ruijie-Employee-Internet-Management": {
-      "title":["统一上网",0.8],
-      "body":["webui/images/ruijie",0.8]
+      "title":["统一上网",0.5],
+      "body":["webui/images/ruijie",0.5]
     },
     "Employee-Internet-Management": {
-      "body":["莱克斯科技",0.8],
-      "title":["netoray nsg 上网行为管理系统",0.8]
+      "body":["莱克斯科技",0.5],
+      "title":["netoray nsg 上网行为管理系统",0.5]
     },
     "Ruijie-Company's-product": {
       "header":["server: rg/device",0.8]
@@ -1138,8 +1036,8 @@
       "body":["alt=\"npe 网络出口控制设备\"",0.8]
     },
     "Ruijie-RSR-Router": {
-      "header":["server: rg/device 10.x",0.8],
-      "body":["class=\"foot_login\">ruijie networks rsr router",0.8]
+      "header":["server: rg/device 10.x",0.5],
+      "body":["class=\"foot_login\">ruijie networks rsr router",0.5]
     },
     "Ruijie-RGOS": {
       "header":["server: rgos http-server",0.8]
@@ -1185,12 +1083,9 @@
     "ZTE-Router": {
       "header":["server: zte/rosng",0.8]
     },
-    "ECOR": {
-      "header":["ecor264",0.8]
-    },
     "ZTE-ZSRV2-Router": {
-      "body":["zte corporation. all rights reserved.",0.8],
-      "title":["zsrv2路由器web管理系统",0.8]
+      "body":["zte corporation. all rights reserved.",0.5],
+      "title":["zsrv2路由器web管理系统",0.5]
     },
     "ZTE-IAD-Voice-Gateway": {
       "body":["system log in && /image/banner_top.jpg",0.8]
@@ -1202,8 +1097,8 @@
       "header":["server: mini web server 1.0 zte ",0.8]
     },
     "ZTE-ZXSEC-Unified-security-gateway": {
-      "body":["{\"length\": 0, \"chained_to\": 1912615737, \"identifier\": \"twork Device\", \"str\": null} && welcome to login gateway system",0.8],
-      "title":["安全网关",0.8]
+      "body":["{\"length\": 0, \"chained_to\": 1912615737, \"identifier\": \"twork Device\", \"str\": null} && welcome to login gateway system",0.5],
+      "title":["安全网关",0.5]
     },
     "ZTE-ZXHN-H108L": {
       "header":["realm=\"zxhn h108l",0.8]
@@ -1218,8 +1113,8 @@
       "header":["realm=\"zxv10 w300s",0.8]
     },
     "ZTE-ZXV10-W300B": {
-      "body":["<modelname>zxv10 w300b</modelname>",0.8],
-      "header":["realm=\"zxv10 w300b",0.8]
+      "body":["<modelname>zxv10 w300b</modelname>",0.5],
+      "header":["realm=\"zxv10 w300b",0.5]
     },
     "ZTE-BAVO-Multimedia-Business-Center": {
       "body":["/zxms80css.css",0.8]
@@ -1261,8 +1156,8 @@
       "icon":["1427976651",0.8]
     },
     "ZTE-ZXHN-H108N": {
-      "body":["<modelname>zxhn h108n</modelname>",0.8],
-      "header":["realm=\"zxhn h108n",0.8]
+      "body":["<modelname>zxhn h108n</modelname>",0.5],
+      "header":["realm=\"zxhn h108n",0.5]
     },
     "ZTE-ZXA10F460": {
       "body":["<modelnumber>f460</modelnumber>",0.8]
@@ -1276,9 +1171,9 @@
       "body":["<td><img src=\"images/img_wireless_bottom.gif\"",0.8]
     },
     "DLink-Router": {
-      "title":["d-link",0.8],
-      "body":["src=\"/image/mobile_dlinklogo_login.png\"",0.8],
-      "header":["dlinkrouter",0.8]
+      "title":["d-link",0.4],
+      "body":["src=\"/image/mobile_dlinklogo_login.png\"",0.3],
+      "header":["dlinkrouter",0.3]
     },
     "DLink-NVR": {
       "header":["realm=\"dnr-",0.8]
@@ -1321,10 +1216,6 @@
     },
     "DLink-Storage-": {
       "body":["<img src=\"/web/images/storage.jpg && document.cookie = \"m_language=\"+v+\"; path=/\";",0.8]
-    },
-    "Handlink-Wireless-Route": {
-      "body":["handlink technologies inc.",0.8],
-      "title":["---wg-",0.8]
     },
     "DLink-DNS-ShareCenter": {
       "body":["sharecenter && /cgi-bin/login_mgr.cgi",0.8]
@@ -1384,6 +1275,10 @@
       "title":["U8C",0.5],
       "body":["/api/uclient/public/download",0.2]
     },
+    "用友NC cloud": {
+      "icon":["1596996317 || 737647198",0.8],
+      "body":["/platform/yonyou-yyy.js",0.2]
+    },
     "用友 U8 CRM": {
       "title":["U8CRM",0.7],
       "body":["/css/crmcss-custom.css",0.2]
@@ -1397,6 +1292,10 @@
       "title":["U9-登录",0.2],
       "body":["/U9/css/login.css",0.2]
     },
+    "用友 U9 cloud": {
+      "icon":["384813036",0.2],
+      "body":["/images/u9",0.8]
+    },
     "YonBIP 用友商业创新平台": {
       "icon":["1409809372",0.5],
       "title":["数字化工作台",0.1],
@@ -1407,7 +1306,7 @@
       "title":["数据应用服务",0.1],
       "body":["/bi/portal/static/js/",0.4]
     },
-    "用友 移动管理平台": {
+    "用友移动管理平台": {
       "body":["移动系统管理",0.5],
       "title":["Login",0.1]
     },
@@ -1427,17 +1326,11 @@
       "body":["login_owner && login_main_bg",0.8]
     },
     "Yonyou-Uclient": {
-      "header":["content-length: 102",0.8],
-      "body":["http-equiv=refresh content=0;url=index.jsp",0.8]
+      "header":["content-length: 102",0.5],
+      "body":["http-equiv=refresh content=0;url=index.jsp",0.5]
     },
     "Yonyou-GRP-U8": {
       "body":["window.location.replace\"login.jsp?up=1\"",0.8]
-    },
-    "Yonyou-OA": {
-      "body":["url[]/images/logon/bg_login.jpg[] repeat-x top",0.8]
-    },
-    "yonyou-seeyon-oa": {
-      "body":["seeyon && seeyonproductid",0.8]
     },
     "yonyou-ufida-nc": {
       "body":["ufida_iufo_over.png && ufida_nc.png",0.8]
@@ -1463,9 +1356,9 @@
       "body":["/doc/page/login.asp",0.8]
     },
     "Hikvision-Cameras-and-Surveillance": {
-      "body":["去除edge下将数字处理成电话的错误",0.8],
-      "header":["content-length: 480",0.8],
-      "title":["netvideoocx",0.8]
+      "body":["去除edge下将数字处理成电话的错误",0.4],
+      "header":["content-length: 480",0.3],
+      "title":["netvideoocx",0.3]
     },
     "Hikvision-iVMS": {
       "body":["class=\"out\"><a href=\"download/ivms-",0.8]
@@ -1474,27 +1367,27 @@
       "body":["value=\"clientbin/vimicro.silverlight.video.xap",0.8]
     },
     "Hikvision-Video-backup-server": {
-      "body":["备份管理服务器",0.8],
-      "title":["video record backup",0.8]
+      "body":["备份管理服务器",0.5],
+      "title":["video record backup",0.5]
     },
     "Hikvision-Image-Recovery-Configuration": {
-      "body":["杭州海康威视数字技术股份有限公司",0.8],
-      "title":["图像复原服务配置客户端",0.8]
+      "body":["杭州海康威视数字技术股份有限公司",0.5],
+      "title":["图像复原服务配置客户端",0.5]
     },
     "Hikvision-Video-Quality-Diagnostic-": {
       "body":["<meta http-equiv=\"refresh\" content=\"0;url=vqd.workbench.aspx\" /> ",0.8]
     },
     "Hikvision-Video-cloud-structured-server": {
-      "body":["/common/hikui/",0.8],
-      "title":["视频云结构化服务器",0.8]
+      "body":["/common/hikui/",0.5],
+      "title":["视频云结构化服务器",0.5]
     },
     "Hikvision-Video-retrieval": {
-      "body":["海康威视",0.8],
-      "title":["智能视频检索系统",0.8]
+      "body":["海康威视",0.5],
+      "title":["智能视频检索系统",0.5]
     },
     "Hikvision--UDE": {
-      "body":["hikvision",0.8],
-      "title":["ude home",0.8]
+      "body":["hikvision",0.5],
+      "title":["ude home",0.5]
     },
     "Hikvision-TV-Wall": {
       "body":["tvwall_newtvwall",0.8]
@@ -1506,12 +1399,12 @@
       "body":["人脸分析子系统",0.8]
     },
     "海康威视视频监控系统": {
-      "icon": ["999357577", 0.6],
-      "body": ["oLan.useActivePwd", 0.2]
+      "icon":["999357577",0.6],
+      "body":["oLan.useActivePwd",0.2]
     },
     "海康威视综合安防管理平台": {
-      "icon": ["136203464 || -1882967125 || 1965660451", 0.8],
-      "title": ["综合安防管理平台", 0.1]
+      "icon":["136203464 || -1882967125 || 1965660451",0.8],
+      "title":["综合安防管理平台",0.1]
     }
   },
   "泛微": {
@@ -1570,19 +1463,19 @@
   },
   "天融信": {
     "TOPSEC-Firewall": {
-      "body":["web user interface",0.8],
-      "header":["topwebserver",0.8]
+      "body":["web user interface",0.5],
+      "header":["topwebserver",0.5]
     },
     "Topsec-Intrusion-detection-system-TopSentry": {
       "body":["天融信入侵检测系统topsentry",0.8]
     },
     "Topsec-WEB-application-firewall": {
-      "body":["evpng.fix('div, ul, img, li, input'); //evpng.fix('pngid1, pngid2')",0.8],
-      "title":["web user login",0.8]
+      "body":["evpng.fix('div, ul, img, li, input'); //evpng.fix('pngid1, pngid2')",0.5],
+      "title":["web user login",0.5]
     },
     "Topsec-Web-application-security-&-protection-system": {
-      "body":["href=\"login_html_files/loginstyle.css\"",0.8],
-      "title":["web应用安全防护系统",0.8]
+      "body":["href=\"login_html_files/loginstyle.css\"",0.5],
+      "title":["web应用安全防护系统",0.5]
     },
     "Topsec-TopScanner": {
       "body":["/js/report/horizontalreportpanel.js",0.8]
@@ -1606,21 +1499,21 @@
       "body":["天融信topflow",0.8]
     },
     "TOPSEC-VPN": {
-      "body":["window.location=\"/portal_default/index.html\";</script>",0.8],
-      "header":["topsecsvportalname=",0.8]
+      "body":["window.location=\"/portal_default/index.html\";</script>",0.5],
+      "header":["topsecsvportalname=",0.5]
     },
     "Sentry": {
       "icon":["2063428236",0.8]
     },
     "天融信防火墙": {
-      "icon": ["368392543 || -2019013898", 0.2],
-      "title": ["Web User Login", 0.1],
-      "header": ["server: TOPSEC || Server: topsec", 0.6],
-      "body": ["/cgi/maincgi.cgi?Url=VerifyCode", 0.1]
+      "icon":["368392543 || -2019013898",0.2],
+      "title":["Web User Login",0.1],
+      "header":["server: TOPSEC || Server: topsec",0.6],
+      "body":["/cgi/maincgi.cgi?Url=VerifyCode",0.1]
     },
     "天融信上网行为管理系统": {
-      "title": ["Login @ Reporter", 0.1],
-      "body": ["dkey_activex_download.php", 0.5]
+      "title":["Login @ Reporter",0.1],
+      "body":["dkey_activex_download.php",0.5]
     }
   },
   "绿盟科技": {
@@ -1628,16 +1521,16 @@
       "body":["/login_logo_nf_zh_cn.png",0.8]
     },
     "NSFOCUS-WAF": {
-      "header":["nsfocus vmwaf",0.8],
-      "body":["/images/logo/nsfocus.png",0.8]
+      "header":["nsfocus vmwaf",0.5],
+      "body":["/images/logo/nsfocus.png",0.5]
     },
     "NSFOCUS-ADS": {
-      "body":["nsfocus.png",0.8],
-      "title":["nsfocus ads",0.8]
+      "body":["nsfocus.png",0.5],
+      "title":["nsfocus ads",0.5]
     },
     "NSFOCUS-RSAS": {
-      "header":["server: nsfoucs",0.8],
-      "body":["/login_logo_rsas_zh_cn.png",0.8]
+      "header":["server: nsfoucs",0.5],
+      "body":["/login_logo_rsas_zh_cn.png",0.5]
     },
     "NSFOCUS-WVSS": {
       "body":["url:'/accounts/treaty/'",0.8]
@@ -1652,8 +1545,8 @@
       "body":["/login_logo_espc_zh_cn.png",0.8]
     },
     "NSFOCUS-UTS": {
-      "title":["uts ",0.8],
-      "body":["/uts_v2/webstatic/",0.8]
+      "title":["uts ",0.5],
+      "body":["/uts_v2/webstatic/",0.5]
     },
     "NSFOCUS-NIDS": {
       "body":["/login_logo_nids_zh_cn.png",0.8]
@@ -1694,8 +1587,8 @@
       "body":["SANGFOR && NGAF && login",0.8]
     },
     "深信服运维安全管理系统": {
-      "icon": ["854881081", 0.3],
-      "body": ["/fort/trust/version/sxf/trust/", 0.7]
+      "icon":["854881081",0.3],
+      "body":["/fort/trust/version/sxf/trust/",0.7]
     },
     "深信服安全感知平台": {
       "body":["安全感知平台 && login.js && apps",0.8]
@@ -1715,12 +1608,12 @@
   },
   "腾达网络": {
     "Tenda-N60": {
-      "header":["realm=\"tenda n60",0.8],
-      "body":["class=\"loagin_title\">tenda n60",0.8]
+      "header":["realm=\"tenda n60",0.5],
+      "body":["class=\"loagin_title\">tenda n60",0.5]
     },
     "Tenda-WiFi": {
-      "title":["repeater",0.8],
-      "body":["src=\"img/logo-inverse.png\" alt=\"tenda logo\"",0.8]
+      "title":["repeater",0.5],
+      "body":["src=\"img/logo-inverse.png\" alt=\"tenda logo\"",0.5]
     },
     "Tenda-WirelessExtender": {
       "body":["extender && alt=\"tenda logo\"",0.8]
@@ -1761,9 +1654,9 @@
       "body":["Marshal West",0.8]
     },
     "Citrix-Netscaler": {
-      "body":["netscape/firefox/opera",0.8],
-      "title":["citrix login",0.8],
-      "header":["set-cookie: citrix_ns_id",0.8]
+      "body":["netscape/firefox/opera",0.4],
+      "title":["citrix login",0.3],
+      "header":["set-cookie: citrix_ns_id",0.3]
     },
     "Citrix-Web-PN-Server": {
       "header":["server: citrix web pn server",0.8]
@@ -1778,8 +1671,8 @@
       "body":["<p/>citrix systems, inc. xcp 1.6.10",0.8]
     },
     "citrix-access-gateway": {
-      "body":["\"/vpn/resources/{lang}\"",0.8],
-      "header":["Location: /vpn/index.html",0.8]
+      "body":["\"/vpn/resources/{lang}\"",0.5],
+      "header":["Location: /vpn/index.html",0.5]
     },
     "citrix-receiver": {
       "body":["logonbelt-topshadow && upgradeavailable-already-installed-separator bar-separator",0.8]
@@ -1814,7 +1707,7 @@
       "body":["<meta name=\"description\" content=\"Zimbra provides open source server and client software for messaging and collaboration. To find out more visit http://www.zimbra.com.\">",0.8]
     },
     "zimbra": {
-      "body":["ImgZimbraIcon",0.8],
+      "body":["ImgZimbraIcon",0.2],
       "header":["Set-Cookie: ZM_LOGIN_CSRF",0.8]
     },
     "vmware-esx": {
@@ -1838,12 +1731,12 @@
       "header":["tp-link td-vg3631",0.8]
     },
     "TP-LINK-Wireless-Router": {
-      "body":["javascript:gourl('http://www.tp-link.com.cn');",0.8],
-      "header":["server: tl- && server: tp-link",0.8]
+      "body":["javascript:gourl('http://www.tp-link.com.cn');",0.5],
+      "header":["server: tl- && server: tp-link",0.5]
     },
     "TP-LINK-Company's-product": {
-      "header":["server: tp-link",0.8],
-      "body":["http-equiv=\"refresh\" content=\"0; url=/webpages/login.html\"",0.8]
+      "header":["server: tp-link",0.5],
+      "body":["http-equiv=\"refresh\" content=\"0; url=/webpages/login.html\"",0.5]
     },
     "TPLINK-Camera": {
       "body":["<frame src=\"controlmenu.htm",0.8]
@@ -1864,7 +1757,7 @@
       "header":["tp-link td-w8968",0.8]
     }
   },
-  "阿里": {
+  "Alibaba": {
     "CanalAdmin": {
       "body":["Canal Admin && js/app",0.8]
     },
@@ -1875,8 +1768,8 @@
       "body":["<title>Nacos</title>",0.8]
     },
     "AliyunCDN": {
-      "body":["cdn.aliyuncs.com",0.8],
-      "header":["cdn.aliyuncs.com",0.8]
+      "body":["cdn.aliyuncs.com",0.5],
+      "header":["cdn.aliyuncs.com",0.5]
     },
     "JStorm": {
       "body":["content=\"jstorm",0.8]
@@ -1902,8 +1795,8 @@
       "body":["YApi && id=\"yapi\" && prd && 可视化接口管理平台",0.8]
     },
     "若依(RuoYi)管理系统": {
-      "icon": ["706913071", 0.4],
-      "body": ["/js/ry-ui.js", 0.5]
+      "icon":["706913071",0.4],
+      "body":["/js/ry-ui.js",0.5]
     },
     "nps": {
       "body":["nps && ehang && login",0.8]
@@ -1929,13 +1822,13 @@
       "body":["Application Security Manager",0.8]
     },
     "F5-BIGIP": {
-      "title":["big-ip",0.8],
-      "body":["content=\"f5 networks, inc.",0.8],
-      "header":["mrhshint=",0.8]
+      "title":["big-ip",0.4],
+      "body":["content=\"f5 networks, inc.",0.3],
+      "header":["mrhshint=",0.3]
     },
     "Neusoft-SEnginx": {
-      "header":["server: senginx",0.8],
-      "body":["senginx-robot-mitigation",0.8]
+      "header":["server: senginx",0.5],
+      "body":["senginx-robot-mitigation",0.5]
     },
     "F5-TrafficShield": {
       "header":["f5-trafficshield",0.8]
@@ -1955,8 +1848,8 @@
   },
   "PaloAlto": {
     "PaloAlto-Firewall": {
-      "header":["pa-200",0.8],
-      "body":["access to the web page you were trying to visit has been blocked in accordance with company policy",0.8]
+      "header":["pa-200",0.5],
+      "body":["access to the web page you were trying to visit has been blocked in accordance with company policy",0.5]
     },
     "PaloAlto-Networks-SSO": {
       "body":[" 2015 palo alto networks, inc. ",0.8]
@@ -1982,15 +1875,15 @@
       "header":["realm=\"spring security application",0.8]
     },
     "Springer": {
-      "body":["src=\"//static.springer.com/",0.8],
-      "header":["springercomcountry=",0.8]
+      "body":["src=\"//static.springer.com/",0.5],
+      "header":["springercomcountry=",0.5]
     },
     "Spring-GW": {
       "header":["realm=\"spring gw",0.8]
     },
     "Spring-Boot-Admin": {
-      "title":["spring boot admin",0.8],
-      "body":["spring boot admin",0.8]
+      "title":["spring boot admin",0.5],
+      "body":["spring boot admin",0.5]
     },
     "Spring-Cloud-Netflix": {
       "header":["x-application-context: hystrix-dashboard:",0.8]
@@ -1999,8 +1892,8 @@
       "body":["org.springframework.web.servlet.i18n.cookielocaleresolver.locale=",0.8]
     },
     "SpringBoot": {
-      "icon": ["116323821", 0.2],
-      "body": ["Whitelabel Error Page", 0.8]
+      "icon":["116323821",0.2],
+      "body":["Whitelabel Error Page",0.8]
     }
   },
   "浪潮信息": {
@@ -2011,8 +1904,8 @@
       "body":["langchao.ecgap.outportal",0.8]
     },
     "Inspur-Server": {
-      "body":["<frame src=\"./page/blank.html\" name=\"mainframe\" id=\"mainframe\" scrolling=\"no\" noresize=\"false\"></frame>",0.8],
-      "title":["management",0.8]
+      "body":["<frame src=\"./page/blank.html\" name=\"mainframe\" id=\"mainframe\" scrolling=\"no\" noresize=\"false\"></frame>",0.5],
+      "title":["management",0.5]
     },
     "Inspur-Storage-": {
       "body":["<td align=\"left\">浪潮存储 您身边的存储专家</td>",0.8]
@@ -2024,14 +1917,14 @@
       "body":["class=\"logininputlabel\" && id=\"loginbtnarea\"",0.8]
     },
     "Inspur-InCloud-Sphere": {
-      "body":["class=\"easyui-layout",0.8],
-      "title":["license tool",0.8]
+      "body":["class=\"easyui-layout",0.5],
+      "title":["license tool",0.5]
     }
   },
   "宇视科技": {
     "Uniview-Cameras-and-Surveillance": {
-      "body":["wanlanswitch && text.videomanagesystem && <label for='autologin' class=\"login_autologinlabel\">",0.8],
-      "header":["server: uniser",0.8]
+      "body":["wanlanswitch && text.videomanagesystem && <label for='autologin' class=\"login_autologinlabel\">",0.5],
+      "header":["server: uniser",0.5]
     },
     "Uniview-Data-management-server": {
       "body":["cur_type=\"devtype_dm8500",0.8]
@@ -2054,9 +1947,9 @@
   },
   "Atlassian": {
     "JIRA": {
-      "body":["content=\"jira",0.8],
-      "header":["atlassian.xsrf.token",0.8],
-      "icon":["855273746",0.8]
+      "body":["content=\"jira",0.4],
+      "header":["atlassian.xsrf.token",0.3],
+      "icon":["855273746",0.3]
     },
     "Bitbucket": {
       "body":["bitbucket.page.login && /j_atl_security_check",0.8]
@@ -2076,8 +1969,8 @@
       "body":["JBoss, Home of Professional Open Source",0.8]
     },
     "JBoss-AS": {
-      "header":["jbossas",0.8],
-      "body":["manage this jboss as instance",0.8]
+      "header":["jbossas",0.5],
+      "body":["manage this jboss as instance",0.5]
     },
     "JBoss-EAP": {
       "body":["href=\"eap.css",0.8]
@@ -2097,8 +1990,8 @@
       "header":["realm=\"elasticsearch",0.8]
     },
     "ALERTMANAGER": {
-      "body":["defaultcreator",0.8],
-      "title":["alertmanager",0.8]
+      "body":["defaultcreator",0.5],
+      "title":["alertmanager",0.5]
     },
     "Pushgateway": {
       "body":["<a class=\"navbar-brand\" href=\"#\">Pushgateway</a>",0.8]
@@ -2118,13 +2011,13 @@
       "body":["EAS系统登录 && 金蝶国际软件集团有限公司",0.8]
     },
     "kingdee-EAS": {
-      "body":["金蝶",0.8],
-      "title":["eas系统登录",0.8],
-      "header":["eassso/login",0.8]
+      "body":["金蝶",0.4],
+      "title":["eas系统登录",0.3],
+      "header":["eassso/login",0.3]
     },
     "kingdee-K3-cloud": {
-      "body":["class=\"kd-div-loading-ct\"",0.8],
-      "title":["k/3 cloud",0.8]
+      "body":["class=\"kd-div-loading-ct\"",0.5],
+      "title":["k/3 cloud",0.5]
     },
     "kingdee": {
       "body":["Kingdee.EntryRole && loginKDLogo",0.8]
@@ -2135,8 +2028,8 @@
       "body":["<a href=\"http://www.awstats.org\" target=\"awstatshome\">created by awstats ",0.8]
     },
     "AWS-EC2": {
-      "body":["welcome to nginx on amazon ec2!",0.8],
-      "header":["ec2-instance-id",0.8]
+      "body":["welcome to nginx on amazon ec2!",0.5],
+      "header":["ec2-instance-id",0.5]
     },
     "AWS-WAF": {
       "header":["http/1.1 403 && server: aws",0.8]
@@ -2170,8 +2063,8 @@
       "body":["Powered by Discuz!",0.8]
     },
     "Discuz!": {
-      "body":["Discuz! && Comsenz && cache/",0.8],
-      "icon":["-505448917",0.8]
+      "body":["Discuz! && Comsenz && cache/",0.5],
+      "icon":["-505448917",0.5]
     },
     "Discuz!X": {
       "body":["<meta name=\"generator\" content=\"Discuz!",0.8]
@@ -2205,8 +2098,8 @@
       "body":["checking hnvr client control version......",0.8]
     },
     "Honeywell-Intermec-EasyLAN": {
-      "body":["color=\"black\" size=\"5\">intermec easylan",0.8],
-      "header":["server: xcd webadmin",0.8]
+      "body":["color=\"black\" size=\"5\">intermec easylan",0.5],
+      "header":["server: xcd webadmin",0.5]
     },
     "Honeywell-IP-AK2": {
       "body":["class=\"ak2word\">ip-ak2",0.8]
@@ -2300,8 +2193,8 @@
       "body":["/nagiosxi/images/favicon.ico",0.8]
     },
     "Nagios": {
-      "header":["nagios ",0.8],
-      "body":["/nagios/cgi-bin/status.cgi",0.8]
+      "header":["nagios ",0.5],
+      "body":["/nagios/cgi-bin/status.cgi",0.5]
     },
     "NagiosXI": {
       "body":["Nagios XI && nagiosxi && Nagios",0.8]
@@ -2329,29 +2222,10 @@
       "body":["=fs && ReportServer",0.8]
     }
   },
-  "捷普漏扫": {
-    "icon":["-1703402136",0.6],
-    "title":["捷普漏洞扫描",0.2],
-    "header":["server: Jump-server",0.2]
-  },
-  "XAMPP": {
-    "body":["content=\"xampp ",0.8],
-    "header":["xampp user",0.8],
-    "icon":["-1275226814",0.8]
-  },
-  "Drupal": {
-    "header":["ace-drupal7prod",0.8],
-    "body":["/sites/all/themes/ && /sites/all/modules/ && /sites/default/files/",0.8],
-    "icon":["-167656799",0.8]
-  },
-  "Jenkins": {
-    "header": ["X-Jenkins-Session", 0.4],
-    "icon":["81586312",0.8]
-  },
   "WordPress": {
     "WordPress": {
-      "body":["wp-admin && wp-content/",0.8],
-      "header":["wordpress_test_cookie",0.8]
+      "body":["wp-admin && wp-content/",0.5],
+      "header":["wordpress_test_cookie",0.5]
     },
     "wordpress": {
       "body":["/wp-content/themes/",0.8]
@@ -2359,8 +2233,8 @@
   },
   "商派网络科技": {
     "ECShop": {
-      "body":["id=\"ecs_cartinfo\"",0.8],
-      "header":["ecs_id",0.8]
+      "body":["id=\"ecs_cartinfo\"",0.5],
+      "header":["ecs_id",0.5]
     },
     "shopex": {
       "body":["http://www.shopex.cn' target='_blank'",0.8]
@@ -2400,8 +2274,8 @@
   },
   "jQuery": {
     "jQuery-official-website-CDN": {
-      "body":["code.jquery.com",0.8],
-      "header":["code.jquery.com",0.8]
+      "body":["code.jquery.com",0.5],
+      "header":["code.jquery.com",0.5]
     },
     "jquerymobile": {
       "body":["jquery.mobile.js",0.8]
@@ -2409,8 +2283,8 @@
   },
   "Cloudflare": {
     "cdnjs": {
-      "body":["cdnjs.cloudflare.com/ajax/libs",0.8],
-      "header":["cdnjs.cloudflare.com/ajax/libs",0.8]
+      "body":["cdnjs.cloudflare.com/ajax/libs",0.5],
+      "header":["cdnjs.cloudflare.com/ajax/libs",0.5]
     },
     "CloudFlare": {
       "body":["<iframe frameborder=\"0\" width=\"100%\" height=\"100%\" src=\"http://anti-virus.cloudflare.com/cdn-cgi/anti-virus-challenge?h=",0.8]
@@ -2421,8 +2295,8 @@
       "header":["docker-distribution-api",0.8]
     },
     "Docker": {
-      "header":["x-docker: production",0.8],
-      "icon":["-1814887000",0.8]
+      "header":["x-docker: production",0.5],
+      "icon":["-1814887000",0.5]
     }
   },
   "海信集团": {
@@ -2435,8 +2309,8 @@
   },
   "通达信科": {
     "通达OA": {
-      "icon": ["-759108386 || -99198135", 0.6],
-      "body": ["tongda", 0.3]
+      "icon":["-759108386 || -99198135",0.6],
+      "body":["tongda",0.3]
     }
   },
   "群晖": {
@@ -2472,88 +2346,116 @@
       "body":["--hanvon-background-color-",0.4]
     }
   },
+  "亿邮": {
+    "亿邮电子邮件系统": {
+      "body":["/tpl/login/user/js/login.js",1]
+    },
+    "亿邮邮件网关": {
+      "icon":["-378323438",0.6],
+      "body":["index.dll?mod=login",0.4]
+    }
+  },
+  "捷普漏扫": {
+    "icon":["-1703402136",0.6],
+    "title":["捷普漏洞扫描",0.2],
+    "header":["server: Jump-server",0.2]
+   },
+  "XAMPP": {
+    "body":["content=\"xampp ",0.4],
+    "header":["xampp user",0.3],
+    "icon":["-1275226814",0.3]
+   },
+  "Drupal": {
+    "header":["ace-drupal7prod",0.4],
+    "body":["/sites/all/themes/ && /sites/all/modules/ && /sites/default/files/",0.3],
+    "icon":["-167656799",0.3]
+   },
+  "Jenkins": {
+    "header":["X-Jenkins-Session",0.3],
+    "icon":["81586312",0.7]
+   },
   "phpBB": {
-    "body":["phpbb group\" />",0.8],
-    "header":["httponly, phpbb3_",0.8]
+    "body":["phpbb group\" />",0.5],
+    "header":["httponly, phpbb3_",0.5]
   },
   "vBulletin": {
-    "body":["<!-- do not remove this copyright notice -->powered by < a href=\"https://www.vbulletin.com\" id=\"vbulletinlink\">",0.8],
-    "header":["bblastvisit && bbsessionhash",0.8]
+    "body":["<!-- do not remove this copyright notice -->powered by < a href=\"https://www.vbulletin.com\" id=\"vbulletinlink\">",0.5],
+    "header":["bblastvisit && bbsessionhash",0.5]
   },
   "Xiaomayi": {
-    "body":["/template/ant/css/anthomecomm.css",0.8],
-    "header":["antxiaouserslogin",0.8]
+    "body":["/template/ant/css/anthomecomm.css",0.5],
+    "header":["antxiaouserslogin",0.5]
   },
   "Bugzilla": {
-    "header":["bugzilla_login_request_cookie",0.8],
-    "body":["/cgi-bin/bugzilla/",0.8]
+    "header":["bugzilla_login_request_cookie",0.5],
+    "body":["/cgi-bin/bugzilla/",0.5]
   },
   "QingCloud": {
-    "body":["content=\"云之基石，自由计算。qingcloud 青云为您提供按需分配、弹性可伸缩的计算能力。\"",0.8],
-    "header":["qingcloudelb",0.8]
+    "body":["content=\"云之基石，自由计算。qingcloud 青云为您提供按需分配、弹性可伸缩的计算能力。\"",0.5],
+    "header":["qingcloudelb",0.5]
   },
   "HFS": {
-    "body":["hfs/\">httpfileserver",0.8],
-    "header":["hfs_sid_=",0.8]
+    "body":["hfs/\">httpfileserver",0.5],
+    "header":["hfs_sid_=",0.5]
   },
   "DoceboLMS": {
-    "header":["docebo_session=",0.8],
-    "body":["powered by docebo",0.8]
+    "header":["docebo_session=",0.5],
+    "body":["powered by docebo",0.5]
   },
   "Yii-Framework": {
-    "body":["get started with yii",0.8],
-    "header":["yii_csrf_token",0.8]
+    "body":["get started with yii",0.5],
+    "header":["yii_csrf_token",0.5]
   },
   "Nucleus-CMS": {
-    "body":["title=\"nucleus\" href=\"http://nucleuscms.org/",0.8],
-    "header":["generator: nucleus cms",0.8]
+    "body":["title=\"nucleus\" href=\"http://nucleuscms.org/",0.5],
+    "header":["generator: nucleus cms",0.5]
   },
   "Map/Reduce": {
-    "body":["it looks like you are making an http request to a hadoop ipc port",0.8],
-    "header":["mapreduce",0.8]
+    "body":["it looks like you are making an http request to a hadoop ipc port",0.5],
+    "header":["mapreduce",0.5]
   },
   "NETENTSEC-NGFW": {
-    "body":["/images/dashboard/dashboard.png",0.8],
-    "title":["网康下一代防火墙",0.8]
+    "body":["/images/dashboard/dashboard.png",0.5],
+    "title":["网康下一代防火墙",0.5]
   },
   "UXSINO-NGFW": {
-    "body":["http://www.uxsino.com",0.8],
-    "title":["优炫下一代防火墙",0.8]
+    "body":["http://www.uxsino.com",0.5],
+    "title":["优炫下一代防火墙",0.5]
   },
   "WHOLETON-NGFW": {
-    "body":["/base/img/login_logo_ngaf.jpg",0.8],
-    "title":["惠尔顿下一代防火墙",0.8]
+    "body":["/base/img/login_logo_ngaf.jpg",0.5],
+    "title":["惠尔顿下一代防火墙",0.5]
   },
   "Surfilter-SURFNX-Security-Gateway": {
-    "body":["/lib/templates/surfilter/css/",0.8],
-    "title":["安全网关",0.8]
+    "body":["/lib/templates/surfilter/css/",0.5],
+    "title":["安全网关",0.5]
   },
   "Bluedon-Firewall": {
-    "title":["防火墙",0.8],
-    "body":["class=\"banquan\">蓝盾信息安全技术股份有限公司",0.8]
+    "title":["防火墙",0.5],
+    "body":["class=\"banquan\">蓝盾信息安全技术股份有限公司",0.5]
   },
   "Webmin": {
-    "body":["Webmin && session_login",0.8],
-    "icon":["1453890729",0.8]
+    "body":["Webmin && session_login",0.5],
+    "icon":["1453890729",0.5]
   },
   "Gitlab": {
-    "body":["content=\"gitlab",0.8],
-    "icon":["1278323681",0.8]
+    "body":["content=\"gitlab",0.5],
+    "icon":["1278323681",0.5]
   },
   "协众 OA": {
     "icon":["-1466673461",0.6],
     "body":["scripts/cnoa.extra.js",0.2]
   },
   "Sun-GlassFish": {
-    "body":["glassfish community",0.8],
-    "header":["server: glassfish server",0.8]
+    "body":["glassfish community",0.5],
+    "header":["server: glassfish server",0.5]
   },
   "中新金盾信息安全管理系统": {
     "body":["中新金盾信息安全管理系统 && login && useusbkey",0.8]
   },
   "东胜物流软件": {
-    "icon": ["1367420509", 0.4],
-    "body": ["list_subcompany", 0.6]
+    "icon":["1367420509",0.4],
+    "body":["list_subcompany",0.6]
   },
   "蓝盾防火墙": {
     "body":["蓝盾 && Bluedon && default/js/act/login.js",0.8]
@@ -2581,9 +2483,6 @@
   },
   "微擎-公众平台自助引擎": {
     "body":["微擎 - 公众平台自助引擎 && www.w7.cc && login",0.8]
-  },
-  "金合OA": {
-    "body":["Jhsoft.Web.login && PassWord.aspx",0.8]
   },
   "好视通视频会议系统": {
     "body":["用户登录 && resources/commonImage/favicon.ico && login/createQRCode.do",0.8]
@@ -2806,7 +2705,7 @@
   "织梦CMS(DedeCMS)": {
     "body":["Powered by <a target=\"_blank\" href=\"http://www.dedecms.com/\">DedeCMS</a>",0.8]
   },
-  "CoreMail": {
+  "Coremail-邮件系统": {
     "body":["coremail/common",0.8]
   },
   "永中dcs": {
@@ -2828,8 +2727,8 @@
     "body":["'hillstone stoneos software version",0.8]
   },
   "信呼OA": {
-    "icon": ["1652488516", 0.6],
-    "body": ["rockoa.com", 0.4]
+    "icon":["1652488516",0.6],
+    "body":["rockoa.com",0.4]
   },
   "phpcms": {
     "body":["<a href=\"http://www.phpcms.cn\" target=\"_blank\">PHPCMS</a>",0.8]
@@ -2849,110 +2748,118 @@
     "body":["Content/js/skt.utility.checkmobile.js",0.4]
   },
   "百卓Smart管理平台": {
-    "body": ["tab_findpwd || find_username", 1]
+    "body":["tab_findpwd || find_username",1]
   },
   "Hoverfly": {
-    "icon": ["1357234275", 1]
+    "icon":["1357234275",1]
   },
   "NetMizer日志管理系统": {
-    "icon": ["-759778190", 0.9],
-    "body": ["NetMizer", 0.1]
+    "icon":["-759778190",0.9],
+    "body":["NetMizer",0.1]
   },
   "nuuo摄像头": {
-    "title": ["Network Video Recorder Login", 1]
+    "title":["Network Video Recorder Login",1]
   },
   "Optilink": {
-    "body": ["login-a-optilink", 0.9]
+    "body":["login-a-optilink",0.9]
   },
   "TurboMail邮件系统": {
-    "body": ["tmw/1/getpassword.jsp", 1]
+    "body":["tmw/1/getpassword.jsp",1]
   },
   "WAVLINK": {
-    "icon": ["-1350437236", 0.8],
-    "body": ["var Brand=\"WAVLINK\"", 0.2]
+    "icon":["-1350437236",0.8],
+    "body":["var Brand=\"WAVLINK\"",0.2]
   },
   "西部数据 NAS": {
-    "icon": ["-1074357885", 0.2],
-    "body": ["WDMyCloud && wdc.custhelp.com", 0.8]
+    "icon":["-1074357885",0.2],
+    "body":["WDMyCloud && wdc.custhelp.com",0.8]
   },
   "XWiki": {
-    "icon": ["831700033 || 1245897666", 0.2],
-    "body": ["data-xwiki-reference", 0.8]
+    "icon":["831700033 || 1245897666",0.2],
+    "body":["data-xwiki-reference",0.8]
   },
   "福建科立讯指挥调度管理平台": {
-    "body": ["app/structure/departments.php", 1]
+    "body":["app/structure/departments.php",1]
   },
   "富勒仓储管理系统": {
-    "icon": ["2050995649 || 1155586370", 0.4],
-    "body": ["/logincenter/wmslogin", 0.5]
+    "icon":["2050995649 || 1155586370",0.4],
+    "body":["/logincenter/wmslogin",0.5]
   },
   "Panalog 日志审计系统": {
-    "icon": ["1286151072", 0.4],
-    "body": ["Maintain/cloud_index.php", 0.5]
+    "icon":["1286151072",0.4],
+    "body":["Maintain/cloud_index.php",0.5]
   },
   "Ncast盈可视高清智能录播系统": {
-    "icon": ["-1253433910", 0.5],
-    "body": ["/manage-check_Login", 0.5]
+    "icon":["-1253433910",0.5],
+    "body":["/manage-check_Login",0.5]
   },
   "普华 PowerPMS": {
-    "body": ["Power.login.init && Power_login_btn", 1]
+    "body":["Power.login.init && Power_login_btn",1]
   },
   "维达外贸客户关系管理系统": {
-    "body": ["/util/js/jquery.weida.js", 1]
+    "body":["/util/js/jquery.weida.js",1]
   },
   "建文工程项目管理系统": {
-    "icon": ["-1839654727 || 1977433282 || -1162834232", 0.4],
-    "body": ["/Login/QRLogin.ashx?method=MakeQRRecord", 0.6]
+    "icon":["-1839654727 || 1977433282 || -1162834232",0.4],
+    "body":["/Login/QRLogin.ashx?method=MakeQRRecord",0.6]
   },
   "英赛特互联网客户服务平台": {
-    "body": ["inc/js/pngfix.js", 0.8]
+    "body":["inc/js/pngfix.js",0.8]
   },
   "朗速ERP": {
-    "body": ["/Resource/Scripts/Yw/Yw_Bootstrap.js", 0.8]
+    "body":["/Resource/Scripts/Yw/Yw_Bootstrap.js",0.8]
   },
   "美特CRM": {
-    "icon": ["-932760915 || 1898847852", 0.3],
-    "body": ["/images/login/metacrm6gb.gif", 0.7]
+    "icon":["-932760915 || 1898847852",0.3],
+    "body":["/images/login/metacrm6gb.gif",0.7]
   },
   "安美数字酒店宽带运营系统": {
-    "icon": ["1259797304", 0.4],
-    "body": ["amttgroup.com", 0.6]
+    "icon":["1259797304",0.4],
+    "body":["amttgroup.com",0.6]
   },
   "Zyxel NAS": {
-    "icon": ["943925975", 0.5],
-    "body": ["/cmd,/ck6fup6/user_grp_cgi/cgi_modify_userinfo", 0.5]
+    "icon":["943925975",0.5],
+    "body":["/cmd,/ck6fup6/user_grp_cgi/cgi_modify_userinfo",0.5]
   },
   "三汇SMG网关管理软件": {
-    "title": ["网关管理软件 || Gateway Management", 0.5],
-    "body": ["text ml10 mr20", 0.5]
+    "title":["网关管理软件 || Gateway Management",0.5],
+    "body":["text ml10 mr20",0.5]
   },
   "九思OA": {
-    "icon": ["1153943769", 0.3],
-    "body": ["/jsoa/webmail", 0.7]
+    "icon":["1153943769",0.3],
+    "body":["/jsoa/webmail",0.7]
   },
   "金慧综合管理信息系统": {
-    "body": ["/CommonWebResource/CoreLib/Combine/SimplePageInc.js && /Portal/LoginBegin.aspx", 0.9]
+    "body":["/CommonWebResource/CoreLib/Combine/SimplePageInc.js && /Portal/LoginBegin.aspx",0.9]
   },
   "赛普EAP企业适配管理平台": {
-    "body": ["IDWebSoft/", 0.7]
+    "body":["IDWebSoft/",0.7]
   },
   "易宝OA": {
-    "body": ["易宝OA系统", 0.7]
+    "body":["易宝OA系统",0.7]
   },
   "快普M6": {
-    "body": ["Resource/JavaScript/jKPM6.DateTime.js", 0.9]
+    "body":["Resource/JavaScript/jKPM6.DateTime.js",0.9]
   },
   "积木报表": {
-    "icon": ["1380908726 || -719061418", 0.3],
-    "body": ["/jmreport/desreport_", 0.6]
+    "icon":["1380908726 || -719061418",0.3],
+    "body":["/jmreport/desreport_",0.6]
   },
   "SwaggerUI": {
-    "body": ["SwaggerUIStandalonePreset", 0.8]
+    "body":["SwaggerUIStandalonePreset",0.8]
   },
   "RabbitMQ": {
-    "icon": ["1064742722", 0.6],
-    "title": ["RabbitMQ", 0.1],
-    "header": ["Server: Cowboy", 0.2],
-    "body": ["RabbitMQ", 0.1]
+    "icon":["1064742722",0.6],
+    "title":["RabbitMQ",0.1],
+    "header":["Server: Cowboy",0.2],
+    "body":["RabbitMQ",0.1]
+  },
+  "EasyCVR-视频管理平台": {
+    "icon":["458134656",0.6],
+    "body":["/EasyPlayer-lib.min.js",0.4]
+  },
+  "万户ezOFFICE协同管理平台": {
+    "icon":["-1827521324",0.6],
+    "body":["/defaultroot/scripts/main/whir",0.4]
   }
 }
